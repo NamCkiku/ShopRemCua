@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -152,6 +160,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RemCua.Common\RemCua.Common.csproj">
+      <Project>{90eae73a-89f0-4636-85a3-d08822b0e5ed}</Project>
+      <Name>RemCua.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RemCua.Entities\RemCua.Entities.csproj">
+      <Project>{1cb6670f-50b4-4bab-99af-3aface97f60d}</Project>
+      <Name>RemCua.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RemCua.Repository\RemCua.Repository.csproj">
+      <Project>{89ed3948-a5db-4a17-9d49-62899b3ee2b0}</Project>
+      <Name>RemCua.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RemCua.Service\RemCua.Service.csproj">
+      <Project>{7d0817ec-d181-41b0-8bd4-eea98aeb8f95}</Project>
+      <Name>RemCua.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
