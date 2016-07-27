@@ -1,151 +1,79 @@
-﻿<div class="module box product-category clearfix">
+﻿@model IEnumerable<RemCua.Entities.Models.ProductCategory>
+
+
+<div class="module box product-category clearfix">
     <div class="module-header">
         <h3><span>Danh mục sản phẩm</span></h3>
     </div>
-    <ul class="nav-main for-home">
-        <li class="category">
-            <strong><a title="Sách Kinh Tế" href="">Rèm Văn Phòng</a></strong>
-            <div class="guide">
-                <a title="Danh Mục" href="">Danh Mục,</a>
-            </div>
-            <div class="sub-cate">
-                <div class="subCate">
-                    <h2>
-                        <a title="Danh Mục" href="">Danh Mục</a>
-                    </h2>
-                    <ul>
-                        <li>
-                            <a title="Marketing - Bán Hàng" href="">Bán Hàng</a>
-                        </li>
-                    </ul>
+    @foreach (var item in Model.Where(x => x.ParentID == null))
+    {
+        var url = "/san-pham/" + item.Alias + "-" + item.ID;
+        var childProductCategory = Model.Where(x => x.ParentID == item.ID);
+        <ul class="nav-main for-home">
+            <li class="category">
+                <strong><a title="@item.Name" href="@url">@item.Name</a></strong>
+                @if (childProductCategory.Count() > 0)
+                {
+                    <div class="sub-cate">
+                        <div class="subCate">
+                            <h2>
+                                <a title="Danh Mục" href="">Danh Mục</a>
+                            </h2>
+                            @foreach (var itemchild in childProductCategory)
+                            {
+                                var childUrl = "/san-pham/" + itemchild.Alias + "-" + itemchild.ID;
+                                <ul>
+                                    <li>
+                                        <a title="Marketing - Bán Hàng" href="@childUrl">@itemchild.Name</a>
+                                    </li>
+                                </ul>
+                            }
+                        </div>
+                    </div>
+                }
+            </li>
+        </ul>
+    }
+    @*<ul class="nav-main for-home">
+            <li class="category">
+                <strong><a id="hlParentCategory" title="Sách Chuyên Ngành" href="#">Rèm Ngủ</a></strong><div class="guide">
+                    <a title="Danh Mục" href="#">Danh Mục,</a>
+                    <a title="Tác Giả" href="#">Tác Giả,</a>
+                    <a title="Nhà Phát Hành" href="#">Nhà Phát Hành,</a>
                 </div>
-            </div>
-        </li>
-    </ul>
-    <ul class="nav-main for-home">
-        <li class="category">
-            <strong><a id="hlParentCategory" title="Sách Chuyên Ngành" href="#">Rèm Ngủ</a></strong><div class="guide">
-                <a title="Danh Mục" href="#">Danh Mục,</a>
-                <a title="Tác Giả" href="#">Tác Giả,</a>
-                <a title="Nhà Phát Hành" href="#">Nhà Phát Hành,</a>
-            </div>
-            <div class="sub-cate">
-                <div class="subCate">
-                    <h2><a title="Danh Mục" href="#">Danh Mục</a></h2><ul>
-                        <li><a title="Cầu Đường" href="#">Cầu Đường</a></li>
-                        <li><a title="Cơ Khí - Chế Tạo Máy" href="#">Cơ Khí - Chế Tạo Máy</a></li>
-                        <li><a title="Dầu Khí" href="">Dầu Khí</a></li>
-                        <li><a title="Kỹ Thuật Công Nghệ" href="">Kỹ Thuật Công Nghệ</a></li>
-                        <li><a title="Môi Trường" href="">Môi Trường</a></li>
-                    </ul>
+                <div class="sub-cate">
+                    <div class="subCate">
+                        <h2><a title="Danh Mục" href="#">Danh Mục</a></h2><ul>
+                            <li><a title="Cầu Đường" href="#">Cầu Đường</a></li>
+                            <li><a title="Cơ Khí - Chế Tạo Máy" href="#">Cơ Khí - Chế Tạo Máy</a></li>
+                            <li><a title="Dầu Khí" href="">Dầu Khí</a></li>
+                            <li><a title="Kỹ Thuật Công Nghệ" href="">Kỹ Thuật Công Nghệ</a></li>
+                            <li><a title="Môi Trường" href="">Môi Trường</a></li>
+                        </ul>
+                    </div>
+                    <div class="subCate">
+                        <h2><a title="Tác Giả" href="">Tác Giả</a></h2><ul>
+                            <li><a title="Nhiều Tác Giả" href="">Nhiều Tác Giả</a></li>
+                            <li><a title="Nguyễn Kim Dân" href="">Nguyễn Kim Dân</a></li>
+                            <li><a title="Hà Sơn" href="">Hà Sơn</a></li>
+                            <li><a title="Nhiều Dịch Giả" href="">Nhiều Dịch Giả</a></li>
+                            <li>
+                                <a title="Thích Nhất Hạnh" href="">Thích Nhất Hạnh</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="subCate">
+                        <h2><a title="Nhà Phát Hành" href="">Nhà Phát Hành</a></h2><ul>
+                            <li><a title="Văn Lang" href="">Văn Lang</a></li>
+                            <li><a title="Thăng Long" href="">Thăng Long</a></li>
+                            <li><a title="NXB KHKT" href="">NXB KHKT</a></li>
+                            <li><a title="Nxb Trẻ " href="">Nxb Trẻ </a></li>
+                            <li>
+                                <a title="Quang Minh" href="">Quang Minh</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="subCate">
-                    <h2><a title="Tác Giả" href="">Tác Giả</a></h2><ul>
-                        <li><a title="Nhiều Tác Giả" href="">Nhiều Tác Giả</a></li>
-                        <li><a title="Nguyễn Kim Dân" href="">Nguyễn Kim Dân</a></li>
-                        <li><a title="Hà Sơn" href="">Hà Sơn</a></li>
-                        <li><a title="Nhiều Dịch Giả" href="">Nhiều Dịch Giả</a></li>
-                        <li>
-                            <a title="Thích Nhất Hạnh" href="">Thích Nhất Hạnh</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="subCate">
-                    <h2><a title="Nhà Phát Hành" href="">Nhà Phát Hành</a></h2><ul>
-                        <li><a title="Văn Lang" href="">Văn Lang</a></li>
-                        <li><a title="Thăng Long" href="">Thăng Long</a></li>
-                        <li><a title="NXB KHKT" href="">NXB KHKT</a></li>
-                        <li><a title="Nxb Trẻ " href="">Nxb Trẻ </a></li>
-                        <li>
-                            <a title="Quang Minh" href="">Quang Minh</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </li>
-    </ul>
-    <ul class="nav-main for-home">
-        <li class="category">
-            <strong><a id="hlParentCategory" title="Sách Chuyên Ngành" href="#">Rèm Ngủ</a></strong><div class="guide">
-                <a title="Danh Mục" href="#">Danh Mục,</a>
-                <a title="Tác Giả" href="#">Tác Giả,</a>
-                <a title="Nhà Phát Hành" href="#">Nhà Phát Hành,</a>
-            </div>
-            <div class="sub-cate">
-                <div class="subCate">
-                    <h2><a title="Danh Mục" href="#">Danh Mục</a></h2><ul>
-                        <li><a title="Cầu Đường" href="#">Cầu Đường</a></li>
-                        <li><a title="Cơ Khí - Chế Tạo Máy" href="#">Cơ Khí - Chế Tạo Máy</a></li>
-                        <li><a title="Dầu Khí" href="">Dầu Khí</a></li>
-                        <li><a title="Kỹ Thuật Công Nghệ" href="">Kỹ Thuật Công Nghệ</a></li>
-                        <li><a title="Môi Trường" href="">Môi Trường</a></li>
-                    </ul>
-                </div>
-                <div class="subCate">
-                    <h2><a title="Tác Giả" href="">Tác Giả</a></h2><ul>
-                        <li><a title="Nhiều Tác Giả" href="">Nhiều Tác Giả</a></li>
-                        <li><a title="Nguyễn Kim Dân" href="">Nguyễn Kim Dân</a></li>
-                        <li><a title="Hà Sơn" href="">Hà Sơn</a></li>
-                        <li><a title="Nhiều Dịch Giả" href="">Nhiều Dịch Giả</a></li>
-                        <li>
-                            <a title="Thích Nhất Hạnh" href="">Thích Nhất Hạnh</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="subCate">
-                    <h2><a title="Nhà Phát Hành" href="">Nhà Phát Hành</a></h2><ul>
-                        <li><a title="Văn Lang" href="">Văn Lang</a></li>
-                        <li><a title="Thăng Long" href="">Thăng Long</a></li>
-                        <li><a title="NXB KHKT" href="">NXB KHKT</a></li>
-                        <li><a title="Nxb Trẻ " href="">Nxb Trẻ </a></li>
-                        <li>
-                            <a title="Quang Minh" href="">Quang Minh</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </li>
-    </ul>
-    <ul class="nav-main for-home">
-        <li class="category">
-            <strong><a id="hlParentCategory" title="Sách Chuyên Ngành" href="#">Rèm Ngủ</a></strong><div class="guide">
-                <a title="Danh Mục" href="#">Danh Mục,</a>
-                <a title="Tác Giả" href="#">Tác Giả,</a>
-                <a title="Nhà Phát Hành" href="#">Nhà Phát Hành,</a>
-            </div>
-            <div class="sub-cate">
-                <div class="subCate">
-                    <h2><a title="Danh Mục" href="#">Danh Mục</a></h2><ul>
-                        <li><a title="Cầu Đường" href="#">Cầu Đường</a></li>
-                        <li><a title="Cơ Khí - Chế Tạo Máy" href="#">Cơ Khí - Chế Tạo Máy</a></li>
-                        <li><a title="Dầu Khí" href="">Dầu Khí</a></li>
-                        <li><a title="Kỹ Thuật Công Nghệ" href="">Kỹ Thuật Công Nghệ</a></li>
-                        <li><a title="Môi Trường" href="">Môi Trường</a></li>
-                    </ul>
-                </div>
-                <div class="subCate">
-                    <h2><a title="Tác Giả" href="">Tác Giả</a></h2><ul>
-                        <li><a title="Nhiều Tác Giả" href="">Nhiều Tác Giả</a></li>
-                        <li><a title="Nguyễn Kim Dân" href="">Nguyễn Kim Dân</a></li>
-                        <li><a title="Hà Sơn" href="">Hà Sơn</a></li>
-                        <li><a title="Nhiều Dịch Giả" href="">Nhiều Dịch Giả</a></li>
-                        <li>
-                            <a title="Thích Nhất Hạnh" href="">Thích Nhất Hạnh</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="subCate">
-                    <h2><a title="Nhà Phát Hành" href="">Nhà Phát Hành</a></h2><ul>
-                        <li><a title="Văn Lang" href="">Văn Lang</a></li>
-                        <li><a title="Thăng Long" href="">Thăng Long</a></li>
-                        <li><a title="NXB KHKT" href="">NXB KHKT</a></li>
-                        <li><a title="Nxb Trẻ " href="">Nxb Trẻ </a></li>
-                        <li>
-                            <a title="Quang Minh" href="">Quang Minh</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </li>
-    </ul>
+            </li>
+        </ul>*@
 </div>

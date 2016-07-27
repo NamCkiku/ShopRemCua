@@ -1,6 +1,11 @@
-﻿<div class="slider-wrapper">
+﻿@model IEnumerable<RemCua.Entities.Models.Slide>
+
+<div class="slider-wrapper">
     <div id="slider" class="nivoSlider">
-        <img src="~/Content/Client/img/8401-1735427.png" />
-        <img src="~/Content/Client/img/8401-1735428.png" />
+        @foreach (var item in Model)
+        {
+            <img src="@item.Image" />
+            <img src="@item.Image" />
+        }
     </div>
 </div>
