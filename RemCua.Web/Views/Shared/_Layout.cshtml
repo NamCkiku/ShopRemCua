@@ -40,9 +40,9 @@
                 <div class="content-inner clearfix">
                     <div id="Breadcrum">
                         <div>
-                            @RenderPage("_Slide.cshtml")
+                            @{Html.RenderAction("_Slide", "Silde");}
                         </div>
-                        @RenderPage("_ProductCategory.cshtml")
+                        @{Html.RenderAction("_ProductCategory", "ProductCategory");}
                     </div>
                 </div>
                 <div class="clearfix"></div>
