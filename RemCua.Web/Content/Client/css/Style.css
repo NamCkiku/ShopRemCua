@@ -306,13 +306,13 @@ a .counter {
 
                 .header-bottom .wrapper-header-bottom .nav-menu .item-main li a.selected, .mainLevel .top-link:hover {
                     text-decoration: none;
-                    color: #DB1818 ;
+                    color: #DB1818;
                 }
 
                 .header-bottom .wrapper-header-bottom .nav-menu .item-main li a.top-link:hover span b, .item-main li a.selected span b {
                     border: 1px solid #fff;
                     border-radius: 12px;
-                    color: #DB1818 ;
+                    color: #DB1818;
                 }
 
                 .header-bottom .wrapper-header-bottom .nav-menu .item-main li a.top-link span b {
@@ -449,7 +449,7 @@ a .counter {
     position: relative;
 }
 
-    /*.slider-wrapper img {
+/*.slider-wrapper img {
         height:450px;
     }*/
 
@@ -603,7 +603,7 @@ a .counter {
     padding: 20px 10px 0px 20px;
     position: absolute;
     top: 0px !important;
-    width: 200px;
+    width: 670px;
     z-index: 1000000;
 }
 
@@ -619,7 +619,7 @@ a .counter {
     float: left;
     margin-bottom: 10px;
     min-height: 135px;
-    width: 100%;
+    width: 33%;
 }
 
 .sub-cate > ul > li a {
@@ -1251,3 +1251,224 @@ footer {
                 text-align: center;
                 line-height: 45px;
             }
+
+
+
+
+/*..........................DETAIL.........................*/
+
+
+/* ****************************************************************************
+		BREADCRUMBS
+**************************************************************************** */
+.breadcrumb {
+    font-size: 12px;
+    color: #fff;
+}
+
+    .breadcrumb a {
+        color: #fff;
+        font-size: 14px;
+        padding: 5px;
+    }
+/* ****************************************************************************
+		product-detail
+**************************************************************************** */
+
+.module-product-detail {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    background: none repeat 0 0 #f0f0f0;
+}
+
+    .module-product-detail .product-detail-info {
+        overflow: auto;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        max-width: 100%;
+    }
+
+.product-detail-info .left {
+    float: left;
+    margin-right: 15px;
+    width: 35.4%;
+    position: relative;
+    z-index: 100;
+    padding-left: 15px;
+}
+
+    .product-detail-info .left .image {
+        float: left;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        overflow: hidden;
+        height: 300px;
+        width: 300px;
+        background: #FFF;
+        padding: 2.5%;
+        box-shadow: 0px 0px 3px #CCC;
+        -webkit-box-shadow: 0px 0px 3px #CCC;
+        -moz-box-shadow: 0px 0px 3px #CCC;
+        position: relative;
+        z-index: 1;
+        display: block;
+        zoom: 1;
+    }
+
+        .product-detail-info .left .image .zoom {
+            position: absolute;
+            left: 0px;
+            bottom: 0;
+            z-index: 20;
+        }
+
+            .product-detail-info .left .image .zoom a {
+                font-size: 10px;
+                color: #738292;
+                text-transform: uppercase;
+                background-color: #FFF;
+                padding: 1px 5px 1px 16px;
+            }
+
+.product-detail-info .right {
+    float: left;
+    width: 58.6%;
+    color: #333333;
+    position: relative;
+    z-index: 200;
+    margin-left: 15px;
+}
+
+    .product-detail-info .right .description {
+    }
+
+        .product-detail-info .right .description .description-title {
+            font-family: 'Gochi Hand', Times;
+            font-size: 28px;
+            color: #205e75;
+            font-weight: normal;
+            float: left;
+            width: 100%;
+            text-align: left;
+            margin-top: 10px;
+            line-height: 1.2;
+        }
+
+        .product-detail-info .right .description .description-info {
+            border-top: 2px solid #404040;
+            padding-top: 10px;
+            margin-top: 15px;
+            float: left;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+            .product-detail-info .right .description .description-info span {
+                padding: 5px;
+                line-height: 2;
+                color: #1A4A5C;
+                font-weight: 600;
+            }
+
+
+.product-share-buttons {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+    .product-share-buttons .shareit {
+        position: relative !important;
+        top: 0 !important;
+        margin: 0 !important;
+        width: initial !important;
+        padding: 0 !important;
+    }
+
+        .product-share-buttons .shareit .share-item {
+            float: left;
+            margin: 0;
+            margin-right: 15px;
+            display: inline-block;
+        }
+
+            .product-share-buttons .shareit .share-item:last-child {
+                margin-right: 0;
+            }
+
+    .product-share-buttons .share-item.twitterbtn {
+        width: 80px;
+    }
+
+    .product-share-buttons .share-item.gplusbtn {
+        width: 62px;
+    }
+
+    .product-share-buttons .share-item.facebookbtn {
+        width: 82px;
+    }
+
+    .product-share-buttons .share-item.linkedinbtn {
+        width: 65px;
+    }
+
+    .product-share-buttons .share-item.stumblebtn {
+        width: 79px;
+    }
+
+    .product-share-buttons .share-item.pinbtn {
+        width: 45px;
+    }
+
+.woocommerce div.product .woocommerce-tabs .panel {
+    padding: 25px 0;
+}
+
+.product-detail-info .right .description .btn-cart {
+    position: relative;
+    width: 30% !important;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    z-index: 9999;
+    float: left;
+}
+
+    .product-detail-info .right .description .btn-cart span {
+        background-color: #70ba28;
+        border-bottom-color: #70ba28;
+        border-left-color: #70ba28;
+        border-radius: 32px;
+        border-top-color: #6bc15f;
+        color: #fff;
+        display: block;
+        font-weight: normal;
+        line-height: 40px;
+        position: relative;
+        width: 100%;
+        margin: auto auto;
+    }
+
+        .product-detail-info .right .description .btn-cart span:hover {
+            background-color: #333;
+            border-bottom-color: #333;
+            border-left-color: #333;
+        }
+
+    .product-detail-info .right .description .btn-cart .fa {
+        padding-right: 10px;
+        font-size: 25px;
+    }
+
+/* ****************************************************************************
+		Tab
+**************************************************************************** */
+
+.row-decription-info {
+    padding: 15px;
+    float: left;
+}

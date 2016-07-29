@@ -23,6 +23,8 @@ namespace RemCua.Service
 
         IEnumerable<Product> ListFeatureProduct(int top);
         IEnumerable<Product> ListNewProduct(int top);
+
+        IEnumerable<Product> GetReatedProduct(int id, int top);
         void SaveChanges();
     }
     public class ProductService : IProductService
@@ -82,6 +84,12 @@ namespace RemCua.Service
         public IEnumerable<Product> ListNewProduct(int top)
         {
             return _productRepository.GetMulti(x => x.Status).OrderByDescending(x => x.CreatedDate).Take(top);
+        }
+
+        public IEnumerable<Product> GetReatedProduct(int id, int top)
+        {
+            var product = _productRepository.GetSingleById(id);
+            return _productRepository.GetMulti(x => x.Status == true && x.ID != id && x.CategoryID == product.CategoryID).OrderByDescending(x => x.CreatedDate).Take(top);
         }
     }
 }

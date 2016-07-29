@@ -20,7 +20,12 @@ namespace RemCua.Web
                 namespaces: new string[] { "RemCua.Web.Controllers" }
             );
 
-
+            routes.MapRoute(
+                name: "ViewDetail",
+                url: "chi-tiet/{alias}-{id}",
+                defaults: new { controller = "Product", action = "Detail", alias = UrlParameter.Optional },
+                namespaces: new string[] { "RemCua.Web.Controllers" }
+            );
 
             routes.MapRoute(
                 name: "Default",
