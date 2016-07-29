@@ -2,47 +2,30 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var ListNewProduct = (IEnumerable<RemCua.Entities.Models.Product>)ViewBag.NewProduct;
+    var ListFeatureProduct = (IEnumerable<RemCua.Entities.Models.Product>)ViewBag.Feature;
 }
 <div class="content-left">
     <div class="box-module">
         <div>
             <div class="title_module">
-                <h3 class=""><span>Rèm Vải</span></h3>
+                <h3 class=""><span>Sản Phẩm Mới Nhất</span></h3>
             </div>
             <div class="box-content">
                 <div class="row-product">
-                    <div class="box-product">
-                        <a class="image" href="product.html" title="View more">
-                            <img src="~/Content/Client/img/rem-vai-rv241-300x300.jpg" />
-                        </a>
-                        <h3 class="name"><a href="product.html" title="">Rèm vải AV14</a></h3>
-                        <p class="wrap_price"> <span class="price">2000.000VNĐ</span> </p>
-                        <a href="javascript:;" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
-                    </div>
-                    <div class="box-product">
-                        <a class="image" href="product.html" title="View more">
-                            <img src="~/Content/Client/img/rem-vai-rv241-300x300.jpg" />
-                        </a>
-                        <h3 class="name"><a href="product.html" title="">Rèm vải AV14</a></h3>
-                        <p class="wrap_price"> <span class="price">2000.000VNĐ</span> </p>
-                        <a href="javascript:;" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
-                    </div>
-                    <div class="box-product">
-                        <a class="image" href="product.html" title="View more">
-                            <img src="~/Content/Client/img/rem-vai-rv241-300x300.jpg" />
-                        </a>
-                        <h3 class="name"><a href="product.html" title="">Rèm vải AV14</a></h3>
-                        <p class="wrap_price"> <span class="price">2000.000VNĐ</span> </p>
-                        <a href="javascript:;" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
-                    </div>
-                    <div class="box-product">
-                        <a class="image" href="product.html" title="View more">
-                            <img src="~/Content/Client/img/rem-vai-rv241-300x300.jpg" />
-                        </a>
-                        <h3 class="name"><a href="product.html" title="">Rèm vải AV14</a></h3>
-                        <p class="wrap_price"> <span class="price">2000.000VNĐ</span> </p>
-                        <a href="javascript:;" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
-                    </div>
+                    @foreach (var item in ListNewProduct)
+                    {
+                        var url = "/chi-tiet/" + item.Alias + "-" + item.ID;
+                        <div class="box-product">
+                            <a class="image" href="@url" title="View more">
+                                <img src="@item.Image" />
+                            </a>
+                            <h3 class="name"><a href="@url" title="">@item.Name</a></h3>
+                            <p class="wrap_price"> <span class="price">@(item.Price == 0 ? "Liên hệ" : item.Price.ToString("N0")) VNĐ</span> </p>
+                            <a href="javascript:;" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
+                        </div>
+                    }
                 </div>
 
             </div>
@@ -335,42 +318,16 @@
             <div class="box-content">
                 <div class="row-product-widget">
                     <ul class="product_list_widget">
-                        <li>
-                            <a href="#">
-                                <img src="~/Content/Client/img/rem-vai-rv241-300x300.jpg" />
-                                <span>Rèm phòng khách PK40</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="~/Content/Client/img/rem-vai-rv241-300x300.jpg" />
-                                <span>Rèm phòng khách</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="~/Content/Client/img/rem-vai-rv241-300x300.jpg" />
-                                <span>Rèm phòng khách PK40</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="~/Content/Client/img/rem-vai-rv241-300x300.jpg" />
-                                <span>Rèm phòng khách</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="~/Content/Client/img/rem-vai-rv241-300x300.jpg" />
-                                <span>Rèm phòng khách PK40</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="~/Content/Client/img/rem-vai-rv241-300x300.jpg" />
-                                <span>Rèm phòng khách PK40</span>
-                            </a>
-                        </li>
+                        @foreach (var item in ListFeatureProduct)
+                        {
+                            var url = "/chi-tiet/" + item.Alias + "-" + item.ID;
+                            <li>
+                                <a href="@url">
+                                    <img src="@item.Image" />
+                                    <span>@item.Name</span>
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </div>
 
