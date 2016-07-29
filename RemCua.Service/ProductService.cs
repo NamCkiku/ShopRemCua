@@ -21,6 +21,8 @@ namespace RemCua.Service
 
         Product GetById(int id);
 
+        IEnumerable<Product> ListFeatureProduct(int top);
+        IEnumerable<Product> ListNewProduct(int top);
         void SaveChanges();
     }
     public class ProductService : IProductService
@@ -62,6 +64,24 @@ namespace RemCua.Service
         public void Update(Product product)
         {
             _productRepository.Update(product);
+        }
+        /// <summary>
+        /// Sản Phẩm Nổi Bật,Hot
+        /// </summary>
+        /// <param name="top"></param>
+        /// <returns></returns>
+        public IEnumerable<Product> ListFeatureProduct(int top)
+        {
+            return _productRepository.GetMulti(x => x.Status && x.HotFlag == true).OrderByDescending(x => x.CreatedDate).Take(top);
+        }
+        /// <summary>
+        /// Sản Phẩm Mới Nhất
+        /// </summary>
+        /// <param name="top"></param>
+        /// <returns></returns>
+        public IEnumerable<Product> ListNewProduct(int top)
+        {
+            return _productRepository.GetMulti(x => x.Status).OrderByDescending(x => x.CreatedDate).Take(top);
         }
     }
 }

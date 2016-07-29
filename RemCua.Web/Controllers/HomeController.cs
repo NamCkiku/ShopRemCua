@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RemCua.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,15 @@ namespace RemCua.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IProductService _productService;
+        public HomeController(IProductService productService)
+        {
+            this._productService = productService;
+        }
         public ActionResult Index()
         {
+            ViewBag.NewProduct = _productService.ListNewProduct(4);//Hiển Thị theo ViewBag
+            ViewBag.Feature = _productService.ListFeatureProduct(6);
             return View();
         }
 

@@ -16,7 +16,6 @@ namespace RemCua.Web.Controllers
         }
         [ChildActionOnly]
         [OutputCache(Duration = 3600)]
-        // GET: ProductCategory
         public PartialViewResult _ProductCategory()
         {
             var model = _productCategoryService.GetAll();
