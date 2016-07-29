@@ -21,6 +21,8 @@ namespace RemCua.Service
 
         ProductCategory GetById(int id);
 
+        IEnumerable<ProductCategory> GetProductByCategory(int top);
+
         void SaveChanges();
     }
     public class ProductCategoryService : IProductCategoryService
@@ -52,6 +54,11 @@ namespace RemCua.Service
         public ProductCategory GetById(int id)
         {
             return _productCategoryRepository.GetSingleById(id);
+        }
+
+        public IEnumerable<ProductCategory> GetProductByCategory(int top)
+        {
+            return _productCategoryRepository.GetAll().Where(x => x.Products.Count >= 4 && x.Status).OrderByDescending(x => x.CreatedDate).Take(top);
         }
 
         public void SaveChanges()
