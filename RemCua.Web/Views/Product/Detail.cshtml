@@ -1,0 +1,183 @@
+﻿@model RemCua.Entities.Models.Product
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var ReatedProduct = (IEnumerable<RemCua.Entities.Models.Product>)ViewBag.ReatedProduct;
+    var ListFeatureProduct = (IEnumerable<RemCua.Entities.Models.Product>)ViewBag.Feature;
+}
+
+<div class="content-left">
+    <div class="box-module">
+        <div class="title_module">
+            <h3 class="">
+                <span class="breadcrumb">
+                    <a href="index.html">Home</a> » <a href="category.html">@Model.ProductCategory.Name</a> » <a href="#">@Model.Name</a>
+                </span>
+            </h3>
+        </div>
+        <div class="clearfix"></div>
+        <div class="module-product-detail">
+            <div class="product-detail-info">
+                <div class="left">
+                    <div class="image">
+                        <a href="@Model.Image" title="" class="cloud-zoom" id='zoom1' rel="adjustX: 0, adjustY:0">
+                            <img src="@Model.Image" title="" alt="" id="image" />
+                        </a>
+                        <div class="zoom">
+                            <a id="zoomer" class="colorbox" href="@Model.Image">+ Zoom</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="description">
+                        <h1 itemprop="name" class="description-title">@Model.Name</h1>
+                        <div class="description-info">
+                            <span>Loại sản phẩm:</span> <a href="brands.html">@Model.ProductCategory.Name</a><br>
+                            <span>Giá cũ:</span>@(Model.Price == 0 ? "Liên hệ" : Model.Price.ToString("N0")) VNĐ<br>
+                            <span>Gía Mới:</span>@(Model.PromotionPrice == 0 ? "" : Model.Price.ToString("N0")) VNĐ<br>
+                            <span>Khuyến Mại:</span>@Model.Warranty<br>
+                            <span>Số Lượng:</span>@Model.Quantity<br><br />
+                            <span>Tags:</span>@Model.ProductCategory.Name<br>
+                        </div>
+
+                        <div class="product-share-buttons">
+                            <div class="shareit">
+                                <!-- Twitter -->
+                                <span class="share-item twitterbtn">
+                                    <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="" style="position: static; visibility: visible; width: 60px; height: 20px;"></iframe>
+                                </span>
+                                <!-- GPlus -->
+                                <span class="share-item gplusbtn">
+                                    <div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px; background: transparent;">
+                                        <iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1469760344169" name="I0_1469760344169" src="" data-gapiattached="true" title="+1"></iframe>
+                                    </div>
+                                </span>
+                                <!-- Facebook -->
+                                <span class="share-item facebookbtn">
+                                    <div id="fb-root" class=" fb_reset">
+                                        <div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
+                                            <div>
+                                                <iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="" style="border: none;"></iframe>
+                                                <iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="" style="border: none;"></iframe>
+                                            </div>
+                                        </div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div>
+                                    </div>
+                                    <div class="fb-like fb_iframe_widget" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="">
+                                        <span style="vertical-align: bottom; width: 60px; height: 20px;">
+                                            <iframe name="f8b2f76800deac" width="150px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="" style="border: none; visibility: visible; width: 60px; height: 20px;" class=""></iframe>
+                                        </span>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        <a href="javascript:;" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="box-module">
+        <div>
+            <div class="title_module">
+                <h3 class=""><span>Mô Tả Sản Phẩm</span></h3>
+            </div>
+            <div class="box-content">
+                <div class="row-decription-info">
+                    @Html.Raw(Model.Content)
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="box-module">
+        <div>
+            <div class="title_module">
+                <h3 class=""><span>Sản Phẩm Liên Quan</span></h3>
+            </div>
+            <div class="box-content">
+                <div class="row-product">
+                    @foreach (var item in ReatedProduct)
+                    {
+                        var url = "/chi-tiet/" + item.Alias + "-" + item.ID;
+                        <div class="box-product">
+                            <a class="image" href="@url" title="View more">
+                                <img src="@item.Image" />
+                            </a>
+                            <h3 class="name"><a href="@url" title="">@item.Name</a></h3>
+                            <p class="wrap_price"> <span class="price">@(item.Price == 0 ? "Liên hệ" : item.Price.ToString("N0")) VNĐ</span> </p>
+                            <a href="javascript:;" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-right">
+    <div class="box-module">
+        <div>
+            <div class="title_module">
+                <h3 class=""><span>Hỗ Trợ Trực Tuyến</span></h3>
+            </div>
+            <div class="box-content">
+                <div class="row-module_support">
+                    <div class="module_support">
+                        <div class="policy_sendo">
+                            <div class="policy_sendo_box ">
+                                <a class="buystep" href="#" title="Các bước mua hàng">Các bước mua hàng</a>
+                            </div>
+                            <div class="policy_sendo_box">
+                                <a class="shippingstep" href="#" title="Phương thức vận chuyển">Phương thức vận chuyển</a>
+                            </div>
+                            <div class="policy_sendo_box">
+                                <a class="paymentstep" href="#" title="Cách thức thanh toán">Cách thức thanh toán</a>
+                            </div>
+                        </div>
+                        <div class="help_all nologin">
+                            <div class="cs">
+                                <div class="title">hỗ trợ khách hàng</div>
+                                <div class="phoneno clearfix">
+                                    <div class="pnleft">
+                                        <div class="hnphone">MR:NAM : <font color="red">0965207749</font></div>
+                                        <div class="hcmphone">MR-THÀNH : <font color="red">0965207749</font></div>
+                                    </div>
+                                </div><div class="email">
+                                    Email: <a href="#" title="Email hỗ trợ của sendo.vn">remcuatot@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="box-module">
+        <div>
+            <div class="title_module">
+                <h3 class=""><span>Sản Phẩm Nổi Bật</span></h3>
+            </div>
+            <div class="box-content">
+                <div class="row-product-widget">
+                    <ul class="product_list_widget">
+                        @foreach (var item in ListFeatureProduct)
+                        {
+                            <li>
+                                <a href="#">
+                                    <img src="@item.Image" />
+                                    <span>@item.Name</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -153,6 +153,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\ProductCategoryController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SildeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -160,6 +161,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Client\css\cloud-zoom.css" />
+    <Content Include="Content\Client\css\colorbox.css" />
     <Content Include="Content\Client\css\Style.css" />
     <Content Include="Content\Client\img\8401-1735427.png" />
     <Content Include="Content\Client\img\8401-1735428.png" />
@@ -171,13 +174,17 @@
     <Content Include="Content\Client\img\cl1.png" />
     <Content Include="Content\Client\img\cl2.png" />
     <Content Include="Content\Client\img\cleftr.png" />
+    <Content Include="Content\Client\img\controls.png" />
+    <Content Include="Content\Client\img\loading.gif" />
     <Content Include="Content\Client\img\logo_phuc.png" />
     <Content Include="Content\Client\img\payment.png" />
     <Content Include="Content\Client\img\rem-vai-rv241-300x300.jpg" />
     <Content Include="Content\Client\img\roman3_4.jpg" />
     <Content Include="Content\Client\img\transport.png" />
     <Content Include="Content\Client\img\VIDEOREMCUA.jpg" />
+    <Content Include="Content\Client\js\cloud-zoom.1.0.2.js" />
     <Content Include="Content\Client\js\jquery-1.7.1.min.js" />
+    <Content Include="Content\Client\js\jquery.colorbox-min.js" />
     <Content Include="Content\Client\Plugins\font-awesome-4.5.0\css\font-awesome.css" />
     <Content Include="Content\Client\Plugins\font-awesome-4.5.0\css\font-awesome.min.css" />
     <Content Include="Content\Client\Plugins\font-awesome-4.5.0\fonts\fontawesome-webfont.svg" />
@@ -311,6 +318,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Page\Page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\Detail.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
