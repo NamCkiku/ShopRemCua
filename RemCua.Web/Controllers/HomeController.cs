@@ -26,5 +26,13 @@ namespace RemCua.Web.Controllers
             ViewBag.NewPost = _postService.GetNewPost(6);
             return View();
         }
+        public PartialViewResult _SupportOnline()
+        {
+            return PartialView();
+        }
+        public PartialViewResult _Ads()
+        {
+            return PartialView();
+        }
     }
 }

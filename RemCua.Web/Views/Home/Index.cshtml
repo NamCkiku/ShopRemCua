@@ -65,37 +65,29 @@
 </div>
 <div class="content-right">
     <div class="box-module">
+        @{Html.RenderAction("_SupportOnline", "Home");}
+    </div>
+    <div class="clearfix"></div>
+    <div class="box-module">
         <div>
             <div class="title_module">
-                <h3 class=""><span>Hỗ Trợ Trực Tuyến</span></h3>
+                <h3 class=""><span>Mạng Xã Hội</span></h3>
             </div>
             <div class="box-content">
-                <div class="row-module_support">
-                    <div class="module_support">
-                        <div class="policy_sendo">
-                            <div class="policy_sendo_box ">
-                                <a class="buystep" href="#" title="Các bước mua hàng">Các bước mua hàng</a>
-                            </div>
-                            <div class="policy_sendo_box">
-                                <a class="shippingstep" href="#" title="Phương thức vận chuyển">Phương thức vận chuyển</a>
-                            </div>
-                            <div class="policy_sendo_box">
-                                <a class="paymentstep" href="#" title="Cách thức thanh toán">Cách thức thanh toán</a>
-                            </div>
-                        </div>
-                        <div class="help_all nologin">
-                            <div class="cs">
-                                <div class="title">hỗ trợ khách hàng</div>
-                                <div class="phoneno clearfix">
-                                    <div class="pnleft">
-                                        <div class="hnphone">MR:NAM : <font color="red">0965207749</font></div>
-                                        <div class="hcmphone">MR-THÀNH : <font color="red">0965207749</font></div>
-                                    </div>
-                                </div><div class="email">
-                                    Email: <a href="#" title="Email hỗ trợ của sendo.vn">remcuatot@gmail.com</a>
-                                </div>
-                            </div>
-                        </div>
+                <div class="row-module_opinion">
+                    <div id="fb-root"></div>
+                    <script>
+                        (function (d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s); js.id = id;
+                            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.7&appId=597788163717802";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                    <div class="fb-page" data-width="240" data-height="230" data-href="https://www.facebook.com/sgiaitri/" data-tabs="false" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/sgiaitri/" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/sgiaitri/">Shop Giải Trí</a>
+                        </blockquote>
                     </div>
                 </div>
             </div>
@@ -103,16 +95,7 @@
     </div>
     <div class="clearfix"></div>
     <div class="box-module">
-        <div>
-            <div class="box-ads">
-                <div class="row-module_ads">
-                    <div class="module_ads">
-                        <img src="~/Content/Client/img/VIDEOREMCUA.jpg" />
-                        <img src="~/Content/Client/img/Capture.PNG" />
-                    </div>
-                </div>
-            </div>
-        </div>
+        @{Html.RenderAction("_Ads", "Home");}
     </div>
     <div class="clearfix"></div>
     <div class="box-module">
@@ -219,16 +202,5 @@
         </div>
     </div>
     <div class="clearfix"></div>
-    <div class="box-module">
-        <div>
-            <div class="title_module">
-                <h3 class=""><span>Thống Kê Truy Cập</span></h3>
-            </div>
-            <div class="box-content">
-                <div class="row-module_opinion">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
+    
 </div>
