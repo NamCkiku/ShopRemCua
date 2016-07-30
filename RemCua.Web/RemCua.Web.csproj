@@ -175,6 +175,7 @@
     <Content Include="Content\Client\img\cl2.png" />
     <Content Include="Content\Client\img\cleftr.png" />
     <Content Include="Content\Client\img\controls.png" />
+    <Content Include="Content\Client\img\hotline.gif" />
     <Content Include="Content\Client\img\loading.gif" />
     <Content Include="Content\Client\img\logo_phuc.png" />
     <Content Include="Content\Client\img\payment.png" />
@@ -321,6 +322,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Product\Detail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_SupportOnline.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Ads.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

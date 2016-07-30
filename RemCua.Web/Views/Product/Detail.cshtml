@@ -37,7 +37,7 @@
                             <span>Gía Mới:</span>@(Model.PromotionPrice == 0 ? "" : Model.Price.ToString("N0")) VNĐ<br>
                             <span>Khuyến Mại:</span>@Model.Warranty<br>
                             <span>Số Lượng:</span>@Model.Quantity<br><br />
-                            <span>Tags:</span>@Model.ProductCategory.Name<br>
+                            <span>Tags:</span>@Model.Tags<br>
                         </div>
 
                         <div class="product-share-buttons">
@@ -120,41 +120,11 @@
 </div>
 <div class="content-right">
     <div class="box-module">
-        <div>
-            <div class="title_module">
-                <h3 class=""><span>Hỗ Trợ Trực Tuyến</span></h3>
-            </div>
-            <div class="box-content">
-                <div class="row-module_support">
-                    <div class="module_support">
-                        <div class="policy_sendo">
-                            <div class="policy_sendo_box ">
-                                <a class="buystep" href="#" title="Các bước mua hàng">Các bước mua hàng</a>
-                            </div>
-                            <div class="policy_sendo_box">
-                                <a class="shippingstep" href="#" title="Phương thức vận chuyển">Phương thức vận chuyển</a>
-                            </div>
-                            <div class="policy_sendo_box">
-                                <a class="paymentstep" href="#" title="Cách thức thanh toán">Cách thức thanh toán</a>
-                            </div>
-                        </div>
-                        <div class="help_all nologin">
-                            <div class="cs">
-                                <div class="title">hỗ trợ khách hàng</div>
-                                <div class="phoneno clearfix">
-                                    <div class="pnleft">
-                                        <div class="hnphone">MR:NAM : <font color="red">0965207749</font></div>
-                                        <div class="hcmphone">MR-THÀNH : <font color="red">0965207749</font></div>
-                                    </div>
-                                </div><div class="email">
-                                    Email: <a href="#" title="Email hỗ trợ của sendo.vn">remcuatot@gmail.com</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @{Html.RenderAction("_SupportOnline", "Home");}
+    </div>
+    <div class="clearfix"></div>
+    <div class="box-module">
+        @{Html.RenderAction("_Ads", "Home");}
     </div>
     <div class="clearfix"></div>
     <div class="box-module">
