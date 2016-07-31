@@ -20,5 +20,15 @@ namespace RemCua.Web.Areas.Admin.Controllers
             }
             base.OnActionExecuting(filterContext);
         }
+        public BaseController()
+        {
+            Toastr = new Toastr();
+        }
+        public Toastr Toastr { get; set; }
+
+        public ToastMessage AddToastMessage(string title, string message, ToastType toastType)
+        {
+            return Toastr.AddToastMessage(title, message, toastType);
+        }
     }
 }
