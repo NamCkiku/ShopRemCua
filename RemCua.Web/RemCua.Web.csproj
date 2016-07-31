@@ -149,6 +149,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PageController.cs" />
@@ -161,6 +163,26 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\Admin\assets\font-awesome\fonts\fontawesome-webfontba72.html" />
+    <Content Include="Content\Admin\assets\font-awesome\fonts\fontawesome-webfontba72.svg" />
+    <Content Include="Content\Admin\css\bootstrap-reset.css" />
+    <Content Include="Content\Admin\css\bootstrap.min.css" />
+    <Content Include="Content\Admin\css\style-responsive.css" />
+    <Content Include="Content\Admin\css\style.css" />
+    <Content Include="Content\Admin\img\arrow-up.png" />
+    <Content Include="Content\Admin\img\nav-expand.png" />
+    <Content Include="Content\Admin\img\right-arrow.png" />
+    <Content Include="Content\Admin\img\search-icon-white.png" />
+    <Content Include="Content\Admin\img\search-icon.png" />
+    <Content Include="Content\Admin\js\bootstrap.min.js" />
+    <Content Include="Content\Admin\js\common-scripts.js" />
+    <Content Include="Content\Admin\js\jquery.dcjqaccordion.2.7.js" />
+    <Content Include="Content\Admin\js\jquery.js" />
+    <Content Include="Content\Admin\js\jquery.nicescroll.js" />
+    <Content Include="Content\Admin\js\jquery.scrollTo.min.js" />
+    <Content Include="Content\Admin\js\soon\custom.js" />
+    <Content Include="Content\Admin\js\soon\plugins.js" />
     <Content Include="Content\Client\css\cloud-zoom.css" />
     <Content Include="Content\Client\css\colorbox.css" />
     <Content Include="Content\Client\css\Style.css" />
@@ -233,6 +255,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
     <Folder Include="Views\Menu\" />
@@ -328,6 +351,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Ads.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Admin\assets\font-awesome\fonts\fontawesome-webfontba72.eot" />
+    <Content Include="Content\Admin\assets\font-awesome\fonts\fontawesome-webfontba72.woff" />
+    <Content Include="Content\Admin\assets\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\_HeaderAdmin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\_Sidebar.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
