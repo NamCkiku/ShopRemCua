@@ -1,4 +1,6 @@
-﻿
+﻿@{
+    var session = (RemCua.Common.UserLogin)Session[RemCua.Common.CommonConstants.User_Session];
+}
 <header class="header white-bg">
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
@@ -12,19 +14,26 @@
             <li>
                 <input type="text" class="form-control search" placeholder="Search">
             </li>
+            @if (session != null)
+            {
             <!-- user login dropdown start-->
-            <li class="dropdown">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <span class="username">Nam Ckiku</span>
-                    <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu extended logout">
-                    <div class="log-arrow-up"></div>
-                    <li><a href="#"><i class="fa fa-bell-o"></i>Ra Trang Chủ</a></li>
-                    <li><a href="login.html"><i class="fa fa-key"></i>Đăng Xuất</a></li>
-                </ul>
-            </li>
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">@session.UserName</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        @*<li><a href="#"><i class="fa fa-bell-o"></i>Ra Trang Chủ</a></li>*@
+                        <li>@Html.ActionLink("Đăng Xuất", "Logout", "Account")</li>
+                    </ul>
+                </li>
             <!-- user login dropdown end -->
+            }
+            else
+            {
+
+            }
         </ul>
         <!--search & user info end-->
     </div>
