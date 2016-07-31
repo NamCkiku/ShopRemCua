@@ -20,9 +20,7 @@
             <div class="product-detail-info">
                 <div class="left">
                     <div class="image">
-                        <a href="@Model.Image" title="" class="cloud-zoom" id='zoom1' rel="adjustX: 0, adjustY:0">
-                            <img src="@Model.Image" title="" alt="" id="image" />
-                        </a>
+                        <img width="300" height="300" src="@Model.Image" title="" alt="" id="image" />
                         <div class="zoom">
                             <a id="zoomer" class="colorbox" href="@Model.Image">+ Zoom</a>
                         </div>
@@ -36,7 +34,8 @@
                             <span>Giá cũ:</span>@(Model.Price == 0 ? "Liên hệ" : Model.Price.ToString("N0")) VNĐ<br>
                             <span>Gía Mới:</span>@(Model.PromotionPrice == 0 ? "" : Model.Price.ToString("N0")) VNĐ<br>
                             <span>Khuyến Mại:</span>@Model.Warranty<br>
-                            <span>Số Lượng:</span>@Model.Quantity<br><br />
+                            <span>Số Lượng:</span>@Model.Quantity<br>
+                            <span>Tóm Tắt:</span>@Model.Description<br><br />
                             <span>Tags:</span>@Model.Tags<br>
                         </div>
 
@@ -103,14 +102,14 @@
                     @foreach (var item in ReatedProduct)
                     {
                         var url = "/chi-tiet/" + item.Alias + "-" + item.ID;
-                        <div class="box-product">
-                            <a class="image" href="@url" title="View more">
-                                <img src="@item.Image" />
-                            </a>
-                            <h3 class="name"><a href="@url" title="">@item.Name</a></h3>
-                            <p class="wrap_price"> <span class="price">@(item.Price == 0 ? "Liên hệ" : item.Price.ToString("N0")) VNĐ</span> </p>
-                            <a href="javascript:;" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
-                        </div>
+                    <div class="box-product">
+                        <a class="image" href="@url" title="View more">
+                            <img src="@item.Image" />
+                        </a>
+                        <h3 class="name"><a href="@url" title="">@item.Name</a></h3>
+                        <p class="wrap_price"> <span class="price">@(item.Price == 0 ? "Liên hệ" : item.Price.ToString("N0")) VNĐ</span> </p>
+                        <a href="javascript:;" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
+                    </div>
                     }
                 </div>
 
@@ -137,12 +136,12 @@
                     <ul class="product_list_widget">
                         @foreach (var item in ListFeatureProduct)
                         {
-                            <li>
-                                <a href="#">
-                                    <img src="@item.Image" />
-                                    <span>@item.Name</span>
-                                </a>
-                            </li>
+                        <li>
+                            <a href="#">
+                                <img src="@item.Image" />
+                                <span>@item.Name</span>
+                            </a>
+                        </li>
                         }
                     </ul>
                 </div>

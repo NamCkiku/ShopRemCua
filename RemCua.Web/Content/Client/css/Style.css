@@ -726,9 +726,9 @@ a .counter {
             .box-module .box-content .row-product .box-product .image {
                 float: left;
                 text-align: center;
-                width: 100%;
+                width: 195px;
                 margin-top: 0;
-                height: auto;
+                height: 195px;
                 position: relative;
                 overflow: hidden;
                 border: none;
@@ -740,8 +740,8 @@ a .counter {
             }
 
                 .box-module .box-content .row-product .box-product .image img {
-                    max-height: 100%;
-                    max-width: 100%;
+                    height: 100%;
+                    width: 100%;
                 }
 
             .box-module .box-content .row-product .box-product .name {
