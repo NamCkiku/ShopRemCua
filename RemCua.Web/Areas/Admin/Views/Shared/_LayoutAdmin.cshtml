@@ -15,6 +15,7 @@
     <link href="~/Content/Admin/css/bootstrap-reset.css" rel="stylesheet">
     <!--external css-->
     <link href="~/Content/Admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/Admin/assets/toastr/toastr.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
     <link href="~/Content/Admin/css/style.css" rel="stylesheet">
     <link href="~/Content/Admin/css/style-responsive.css" rel="stylesheet" />
@@ -38,11 +39,11 @@
         </section>
         <!--main content end-->
         <!--footer start-->
-        <footer class="site-footer">
+        @*<footer class="site-footer">
             <div class="text-center">
                 Trang Quản Trị Admin
             </div>
-        </footer>
+        </footer>*@
         <!--footer end-->
     </section>
 
@@ -52,7 +53,7 @@
     <script class="include" type="text/javascript" src="~/Content/Admin/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="~/Content/Admin/js/jquery.scrollTo.min.js"></script>
     <script src="~/Content/Admin/js/jquery.nicescroll.js" type="text/javascript"></script>
-
+    <script src="~/Content/Admin/assets/toastr/toastr.js"></script>
     <!--common script for all pages-->
     <script src="~/Content/Admin/js/common-scripts.js"></script>
     @RenderSection("scripts", false)
