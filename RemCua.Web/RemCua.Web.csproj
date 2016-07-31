@@ -187,32 +187,6 @@
     <Content Include="Content\Admin\assets\advanced-datatable\media\js\jquery.dataTables.js" />
     <Content Include="Content\Admin\assets\bootstrap-datepicker\css\datepicker.css" />
     <Content Include="Content\Admin\assets\bootstrap-datepicker\js\bootstrap-datepicker.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\.gitignore" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput-angular.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput-angular.min.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.css" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.min.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\examples\assets\app.css" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\examples\assets\app.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\examples\assets\app_bs2.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\examples\assets\app_bs3.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\examples\bootstrap-2.3.2.html" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\examples\index.html" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\Gruntfile.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\karma.conf.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\src\bootstrap-tagsinput-angular.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\src\bootstrap-tagsinput.css" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\src\bootstrap-tagsinput.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\test\bootstrap-tagsinput-angular.tests.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\test\bootstrap-tagsinput\events.tests.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\test\bootstrap-tagsinput\input_with_object_items.tests.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\test\bootstrap-tagsinput\input_with_string_items.tests.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\test\bootstrap-tagsinput\reproduced_bugs.tests.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\test\bootstrap-tagsinput\select_with_object_items.tests.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\test\bootstrap-tagsinput\select_with_string_items.tests.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\test\helpers.js" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\test\index.html" />
     <Content Include="Content\Admin\assets\ckeditor\adapters\jquery.js" />
     <Content Include="Content\Admin\assets\ckeditor\CHANGES.html" />
     <Content Include="Content\Admin\assets\ckeditor\ckeditor.asp" />
@@ -1218,6 +1192,7 @@
     <Content Include="Content\Admin\js\jquery.js" />
     <Content Include="Content\Admin\js\jquery.nicescroll.js" />
     <Content Include="Content\Admin\js\jquery.scrollTo.min.js" />
+    <Content Include="Content\Admin\js\jquery.tagsinput.js" />
     <Content Include="Content\Admin\js\soon\custom.js" />
     <Content Include="Content\Admin\js\soon\plugins.js" />
     <Content Include="Content\Admin\template\newuser.html" />
@@ -1449,18 +1424,10 @@
     <Content Include="Content\Admin\assets\ckfinder\userfiles\.htaccess" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\.travis.yml" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\bootstrap-tagsinput.jquery.json" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\bower.json" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput-angular.min.js.map" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.less" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.min.js.map" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.zip" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\examples\assets\cities.json" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\examples\assets\citynames.json" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\LICENSE" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\package.json" />
-    <Content Include="Content\Admin\assets\bootstrap-tagsinput-latest\README.md" />
+    <Content Include="Areas\Admin\Views\ProductAdmin\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductAdmin\_DeleteProduct.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
