@@ -1,0 +1,70 @@
+﻿@model RemCua.Web.Areas.Admin.Models.RegisterModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <link href="~/Content/Admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Admin/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="~~/Content/Admin/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!--external css-->
+    <!-- Custom styles for this template -->
+    <link href="~/Content/Admin/css/style.css" rel="stylesheet">
+    <link href="~/Content/Admin/css/style-responsive.css" rel="stylesheet" />
+    <link href="~/Content/Admin/assets/toastr/toastr.css" rel="stylesheet" />
+</head>
+<body class="login-body">
+    <div class="container">
+        <div class="form-horizontal form-signin">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <h2 class="form-signin-heading">Đăng Ký Thành Viên</h2>
+                <div class="login-wrap">
+                    <p>Nhập thông tin cá nhân của bạn</p>
+                    @Html.ValidationSummary(true)
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Tên Tài Khoản" })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Mật Khẩu" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Nhập Lại Mật Khẩu" })
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @placeholder = "Số Điện Thoại" })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Họ Và Tên" })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @placeholder = "Địa Chỉ" })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    <button class="btn btn-lg btn-login btn-block" type="submit">Đăng Ký</button>
+                    <div class="registration">
+                        Đã Có Tài Khoản?
+                        <a class="" href="/Admin/Account/Login">
+                            Login
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="~/Content/Admin/js/jquery.js"></script>
+    <script src="~/Content/Admin/js/bootstrap.min.js"></script>
+    <script src="~/Content/Admin/assets/toastr/toastr.js"></script>
+    @if (ViewBag.message != null)
+    {
+        <script type="text/javascript">
+        $(document).ready(function () {
+            toastr.error('@ViewBag.message')
+        });
+        </script>
+    }
+</body>
+</html>
+

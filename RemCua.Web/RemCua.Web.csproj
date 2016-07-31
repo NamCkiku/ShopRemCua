@@ -150,7 +150,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Models\RegisterModel.cs" />
+    <Compile Include="Areas\Admin\Models\UserViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PageController.cs" />
@@ -166,6 +170,10 @@
     <Content Include="Content\Admin\assets\font-awesome\css\font-awesome.css" />
     <Content Include="Content\Admin\assets\font-awesome\fonts\fontawesome-webfontba72.html" />
     <Content Include="Content\Admin\assets\font-awesome\fonts\fontawesome-webfontba72.svg" />
+    <Content Include="Content\Admin\assets\toastr\toastr.css" />
+    <Content Include="Content\Admin\assets\toastr\toastr.js" />
+    <Content Include="Content\Admin\assets\toastr\toastr.min.css" />
+    <Content Include="Content\Admin\assets\toastr\toastr.min.js" />
     <Content Include="Content\Admin\css\bootstrap-reset.css" />
     <Content Include="Content\Admin\css\bootstrap.min.css" />
     <Content Include="Content\Admin\css\style-responsive.css" />
@@ -183,6 +191,7 @@
     <Content Include="Content\Admin\js\jquery.scrollTo.min.js" />
     <Content Include="Content\Admin\js\soon\custom.js" />
     <Content Include="Content\Admin\js\soon\plugins.js" />
+    <Content Include="Content\Admin\template\newuser.html" />
     <Content Include="Content\Client\css\cloud-zoom.css" />
     <Content Include="Content\Client\css\colorbox.css" />
     <Content Include="Content\Client\css\Style.css" />
@@ -255,7 +264,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
     <Folder Include="Views\Menu\" />
@@ -364,13 +373,30 @@
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Areas\Admin\Views\Shared\_HeaderAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Shared\_Sidebar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Account\ForgotPassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Account\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Admin\assets\toastr\.bower.json" />
+    <Content Include="Content\Admin\assets\toastr\bower.json" />
+    <Content Include="Content\Admin\assets\toastr\README.md" />
+    <Content Include="Content\Admin\assets\toastr\toastr.js.map" />
+    <Content Include="Content\Admin\assets\toastr\toastr.less" />
+    <Content Include="Content\Admin\assets\toastr\toastr.scss" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

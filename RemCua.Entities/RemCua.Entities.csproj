@@ -55,6 +55,10 @@
     <Compile Include="Migrations\201607270854017_InitialDB.Designer.cs">
       <DependentUpon>201607270854017_InitialDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607310412083_updateUser.cs" />
+    <Compile Include="Migrations\201607310412083_updateUser.Designer.cs">
+      <DependentUpon>201607310412083_updateUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Feedback.cs" />
@@ -68,11 +72,14 @@
     <Compile Include="Models\PostCategory.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductCategory.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\ShopRemCuaEntity.cs" />
     <Compile Include="Models\Slide.cs" />
     <Compile Include="Models\SupportOnline.cs" />
     <Compile Include="Models\SystemConfig.cs" />
     <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserGroup.cs" />
     <Compile Include="Models\VisitorStatistic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -89,6 +96,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201607270854017_InitialDB.resx">
       <DependentUpon>201607270854017_InitialDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607310412083_updateUser.resx">
+      <DependentUpon>201607310412083_updateUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
