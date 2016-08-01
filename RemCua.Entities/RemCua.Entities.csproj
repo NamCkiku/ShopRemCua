@@ -59,6 +59,10 @@
     <Compile Include="Migrations\201607310412083_updateUser.Designer.cs">
       <DependentUpon>201607310412083_updateUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608010007142_updatWarranty.cs" />
+    <Compile Include="Migrations\201608010007142_updatWarranty.Designer.cs">
+      <DependentUpon>201608010007142_updatWarranty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Feedback.cs" />
@@ -99,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607310412083_updateUser.resx">
       <DependentUpon>201607310412083_updateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608010007142_updatWarranty.resx">
+      <DependentUpon>201608010007142_updatWarranty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

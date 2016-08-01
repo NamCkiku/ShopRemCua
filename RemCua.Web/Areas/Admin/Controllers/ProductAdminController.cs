@@ -50,7 +50,6 @@ namespace RemCua.Web.Areas.Admin.Controllers
                     {
                         product.CreatedDate = DateTime.Now;
                     }
-                    product.Status = true;
                     if (!string.IsNullOrEmpty(product.Tags))
                     {
                         product.Tags.Split(',');
@@ -58,6 +57,7 @@ namespace RemCua.Web.Areas.Admin.Controllers
                     _productService.Add(product);
                     _productService.SaveChanges();
                     ViewBag.Message = "Chúc Mừng Bạn Đã Thêm Thành Công";
+                    return RedirectToAction("ViewProduct", "ProductAdmin");
                 }
 
             }
@@ -65,14 +65,15 @@ namespace RemCua.Web.Areas.Admin.Controllers
             {
                 ViewBag.Message = "Thêm Không Thành Công";
             }
-            return RedirectToAction("ViewProduct", "ProductAdmin");
+            SelectViewBag();
+            return View(product);
         }
 
 
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var product=_productService.GetById(id);
+            var product = _productService.GetById(id);
             SelectViewBag();
             return View(product);
         }
