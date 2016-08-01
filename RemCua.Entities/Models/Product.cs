@@ -1,4 +1,4 @@
-namespace RemCua.Entities.Models
+﻿namespace RemCua.Entities.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,27 +17,32 @@ namespace RemCua.Entities.Models
 
         public int ID { get; set; }
 
-        [Required]
         [StringLength(256)]
+        [Display(Name = "Tên Sản Phẩm")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Tên Sản Phẩm")]
         public string Name { get; set; }
 
-        [Required]
+        [Display(Name = "Tiêu Đề Seo")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Tiêu Đề Seo")]
         [StringLength(256)]
         public string Alias { get; set; }
 
         public int CategoryID { get; set; }
 
         [StringLength(256)]
+        [Display(Name = "Ảnh Sản Phẩm")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Ảnh Sản Phẩm")]
         public string Image { get; set; }
 
         [Column(TypeName = "xml")]
         public string MoreImages { get; set; }
-
+        [Display(Name = "Gía Sản Phẩm")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Gía Sản Phẩm")]
         public decimal Price { get; set; }
 
         public decimal? PromotionPrice { get; set; }
 
-        public int? Warranty { get; set; }
+        public string Warranty { get; set; }
 
         [StringLength(500)]
         public string Description { get; set; }
@@ -51,7 +56,8 @@ namespace RemCua.Entities.Models
         public int? ViewCount { get; set; }
 
         public string Tags { get; set; }
-
+        [Display(Name = "Số Lượng")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Số Lượng")]
         public int Quantity { get; set; }
 
         public decimal OriginalPrice { get; set; }
@@ -71,7 +77,8 @@ namespace RemCua.Entities.Models
 
         [StringLength(256)]
         public string MetaDescription { get; set; }
-
+        [Display(Name = "Trạng thái")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Trạng Thái")]
         public bool Status { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
