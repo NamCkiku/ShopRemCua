@@ -16,7 +16,7 @@
             </header>
             <div class="panel-body">
                 <div class="adv-table">
-                    <a href="/Admin/ProductAdmin/Add"  id="create" class="btn btn-round btn-primary btn-md">
+                    <a href="/Admin/ProductAdmin/Add" id="create" class="btn btn-round btn-primary btn-md">
                         <i class="fa fa-plus"></i>Thêm
                     </a>
                     <div class="space15"></div>
@@ -41,7 +41,7 @@
                                     <td class="center"><img width="30" height="30" src="@item.Image" /></td>
                                     <td class="text-center">@item.Name</td>
                                     <td class="text-center">@item.CreatedDate</td>
-                                    <td class="text-center">@item.Status</td>
+                                    <td class="text-center"><button type="button" class="btn btn-round btn-xs btn-success btn-active" data-id="@item.ID"> @Html.Raw(item.Status ? "Kích hoạt" : "Khóa")</button></td>
                                     <td class="text-center">
                                         <a href="/Admin/ProductAdmin/Edit/@item.ID" class="btn btn-round btn-primary btn-xs btnupdate"><i class="fa fa-pencil-square-o"></i>Sửa</a>
                                         <button type="button" id="btnDelete" data-id="@item.ID" class="btn btn-round btn-danger btn-xs btnDelete" data-toggle="modal" data-target="#mydeleteProduct">
@@ -88,7 +88,25 @@
             $(".model-delete").load("@Url.Action("_DeleteProduct", "ProductAdmin")/" + $(this).data("id"));
         });
     </script>
-
+    <script>
+        $('.btn-active').click(function () {
+            var btn = $(this);
+            var id = btn.data('id');
+            $.ajax({
+                url: "@Url.Action("ChangeStatus", "ProductAdmin")",
+                data: { id: id },
+                dataType: "Json",
+                type: "Post",
+                success: function (reponse) {
+                    if (reponse.Status == true) {
+                        btn.text("Kích hoạt");
+                    } else if (reponse.Status == false) {
+                        btn.text("Khóa");
+                    }
+                }
+            });
+        });
+    </script>
     <script language="javascript">
         $("#btndelete").click(function () {
             var dataDelete = {
