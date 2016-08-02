@@ -1,4 +1,4 @@
-namespace RemCua.Entities.Models
+﻿namespace RemCua.Entities.Models
 {
     using System;
     using System.Collections.Generic;
@@ -16,23 +16,28 @@ namespace RemCua.Entities.Models
 
         public int ID { get; set; }
 
-        [Required]
+        [Display(Name = "Tên Sản Phẩm")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Họ Và Tên")]
         [StringLength(256)]
         public string CustomerName { get; set; }
 
-        [Required]
+        [Display(Name = "Tên Sản Phẩm")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Địa Chỉ")]
         [StringLength(256)]
         public string CustomerAddress { get; set; }
 
-        [Required]
+        [Display(Name = "Tên Sản Phẩm")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Email")]
         [StringLength(256)]
         public string CustomerEmail { get; set; }
 
-        [Required]
+        [Display(Name = "Tên Sản Phẩm")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Số Điện Thoại")]
         [StringLength(50)]
         public string CustomerMobile { get; set; }
 
-        [Required]
+        [Display(Name = "Tên Sản Phẩm")]
+        [Required(ErrorMessage = "Vui Lòng Để Lại Lời Nhắn")]
         [StringLength(256)]
         public string CustomerMessage { get; set; }
 

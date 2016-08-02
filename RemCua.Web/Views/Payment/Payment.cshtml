@@ -1,0 +1,46 @@
+﻿@model RemCua.Entities.Models.Order
+@{
+    Layout = null;
+}
+<div id="shipping-address">
+    <div class="checkout-heading checkout2">Thông Tin Mua Hàng</div>
+    @using (Html.BeginForm("Payment", "Payment", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="checkout-content">
+            @Html.ValidationMessage("", new { @class = "text-danger" })
+            <div class="left">
+                <span class="required">*</span> Họ và Tên:<br>
+                @Html.TextBoxFor(model => model.CustomerName, new { @class = "large-field", @placeholder = "Họ Và Tên" })
+                @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+                <br>
+                <br>
+                <span class="required">*</span> E-Mail:<br>
+                @Html.TextBoxFor(model => model.CustomerEmail, new { @class = "large-field", @placeholder = "E-Mail" })
+                @Html.ValidationMessageFor(model => model.CustomerEmail, "", new { @class = "text-danger" })
+                <br>
+                <br>
+                <span class="required">*</span> Số điện thoại:<br>
+                @Html.TextBoxFor(model => model.CustomerMobile, new { @class = "large-field", @placeholder = "Số điện thoại" })
+                @Html.ValidationMessageFor(model => model.CustomerMobile, "", new { @class = "text-danger" })
+                <br>
+                <br>
+            </div>
+            <div class="right">
+                <span class="required">*</span>Địa Chỉ<br>
+                @Html.TextBoxFor(model => model.CustomerAddress, new { @class = "large-field", @placeholder = "Địa Chỉ" })
+                @Html.ValidationMessageFor(model => model.CustomerAddress, "", new { @class = "text-danger" })
+                <br>
+                <br>
+                <span class="required">*</span> Lời Nhắn:<br>
+                @Html.TextAreaFor(model => model.CustomerMessage, new { @class = "large-field", style = "margin: 4px 0px 0px; height: 110px; width: 545px;" })
+                @Html.ValidationMessageFor(model => model.CustomerMessage, "", new { @class = "text-danger" })
+                <br>
+                <br>
+                <div class="buttons">
+                    <button type="submit" id="button-register" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Gửi Đơn Hàng</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>

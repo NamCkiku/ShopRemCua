@@ -1718,3 +1718,170 @@ cart-total {
     border: 1px solid transparent;
     border-radius: 4px;
 }
+
+
+
+
+
+checkout {
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 4%;
+    font: 14px 'Source Sans Pro', Arial;
+    line-height: 20px;
+    color: #4D4D4D;
+}
+
+.checkout-heading {
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    background: #DB1818;
+    height: 42px;
+    line-height: 42px;
+    padding-left: 2%;
+    padding-right: 2%;
+    cursor: pointer;
+    margin-bottom: 18px;
+}
+
+    .checkout-heading a {
+        float: right;
+        margin-top: 1px;
+        font-weight: normal;
+        text-decoration: none;
+    }
+
+.checkout-content {
+    margin-top: 1%;
+    border-radius: 10px;
+    border: 1px solid #DB1818;
+    background: #fff;
+    box-shadow: #d2d1c8 2px 2px 5px;
+    -webkit-box-shadow: #d2d1c8 2px 2px 5px;
+    -moz-box-shadow: #d2d1c8 2px 2px 5px;
+    overflow: hidden;
+    padding-left: 15px;
+    padding-top: 10px;
+    margin-bottom: 18px;
+}
+
+#payment-address .checkout-content, #shipping-address .checkout-content, #shipping-method .checkout-content, #payment-method .checkout-content, #confirm .checkout-content {
+    background: #fffbdd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#fffbdd));
+    background: -webkit-linear-gradient(top, #ffffff, #fffbdd);
+    background: -moz-linear-gradient(top, #ffffff, #fffbdd);
+    background: -ms-linear-gradient(top, #ffffff, #fffbdd);
+    background: -o-linear-gradient(top, #ffffff, #fffbdd);
+    background-image: -ms-linear-gradient(top, #ffffff 0%, #fffbdd 100%);
+    padding: 15px;
+}
+
+.checkout-content h2 {
+    border: none;
+}
+
+.checkout-content .left {
+    float: left;
+    width: 48%;
+}
+
+.checkout-content .right {
+    float: right;
+    width: 48%;
+    background: #fffbdd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#fffbdd));
+    background: -webkit-linear-gradient(top, #ffffff, #fffbdd);
+    background: -moz-linear-gradient(top, #ffffff, #fffbdd);
+    background: -ms-linear-gradient(top, #ffffff, #fffbdd);
+    background: -o-linear-gradient(top, #ffffff, #fffbdd);
+    background-image: -ms-linear-gradient(top, #ffffff 0%, #fffbdd 100%);
+    border-left: 1px solid #fada99;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.checkout-content .buttons {
+    clear: both;
+    float: right;
+    width: 100%;
+}
+
+.buttons .right {
+    background: none;
+    border: none;
+}
+
+.checkout-content .buttons .button {
+    float: right;
+}
+
+.checkout-product table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    margin-bottom: 20px;
+}
+
+.checkout-product td {
+    padding: 7px;
+}
+
+.checkout-product thead td {
+    color: #4D4D4D;
+    font-weight: bold;
+    background-color: #F7F7F7;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.checkout-product thead .name, .checkout-product thead .model {
+    text-align: left;
+}
+
+.checkout-product thead .quantity, .checkout-product thead .price, .checkout-product thead .total {
+    text-align: right;
+}
+
+.checkout-product tbody td {
+    vertical-align: top;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.checkout-product tbody .name, .checkout-product tbody .model {
+    text-align: left;
+}
+
+.checkout-product tbody .quantity, .checkout-product tbody .price, .checkout-product tbody .total {
+    text-align: right;
+}
+
+.checkout-product tfoot td {
+    text-align: right;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+#shipping-address input[type='text'], input[type='password'], textarea {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 4px;
+    border: 1px solid #D2CFC9;
+    border-radius: 8px;
+    width: auto;
+    min-width: 300px;
+    line-height: 26px;
+    height: 28px;
+    padding: 0 6px;
+    overflow: hidden;
+    background: #fef7e9;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fdedce), to(#fef7e9));
+    background: -webkit-linear-gradient(top, #fdedce, #fef7e9);
+    background: -moz-linear-gradient(top, #fdedce, #fef7e9);
+    background: -ms-linear-gradient(top, #fdedce, #fef7e9);
+    background: -o-linear-gradient(top, #fdedce, #fef7e9);
+    background-image: -ms-linear-gradient(top, #fdedce 0%, #fef7e9 100%);
+    font-size: 14px;
+}
