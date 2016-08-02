@@ -25,7 +25,7 @@
                             </a>
                             <h3 class="name"><a href="@url" title="">@item.Name</a></h3>
                             <p class="wrap_price"> <span class="price">@(item.Price == 0 ? "Liên hệ" : item.Price.ToString("N0")) VNĐ</span> </p>
-                            <a href="javascript:;" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
+                            <a href="javascript:;" onclick="addProduct(@item.ID)" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
                         </div>
                     }
                 </div>
@@ -52,7 +52,7 @@
                                 </a>
                                 <h3 class="name"><a href="@url" title="">@item.Name</a></h3>
                                 <p class="wrap_price"> <span class="price">@(item.Price == 0 ? "Liên hệ" : item.Price.ToString("N0")) VNĐ</span> </p>
-                                <a href="javascript:;" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
+                                <a href="javascript:;" onclick="addProduct(@item.ID)" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
                             </div>
                         }
                     </div>
@@ -109,12 +109,12 @@
                         @foreach (var item in ListFeatureProduct)
                         {
                             var url = "/chi-tiet/" + item.Alias + "-" + item.ID;
-                            <li>
-                                <a href="@url">
-                                    <img src="@item.Image" />
-                                    <span>@item.Name</span>
-                                </a>
-                            </li>
+                        <li>
+                            <a href="@url">
+                                <img src="@item.Image" />
+                                <span>@item.Name</span>
+                            </a>
+                        </li>
                         }
                     </ul>
                 </div>
@@ -202,5 +202,20 @@
         </div>
     </div>
     <div class="clearfix"></div>
-    
+
 </div>
+
+<link href="~/Content/Admin/assets/toastr/toastr.css" rel="stylesheet" />
+<script src="~/Content/Admin/assets/toastr/toastr.js"></script>
+<script type="text/javascript">
+    function addProduct(id) {
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("AddCart", "Cart")',
+            data: { productID: id, quantity: 1 },
+            success: function (data) {
+                toastr.success('Thêm Vào Giỏ Hàng Thành Công', 'Thành Công')
+            },
+        });
+    }
+</script>
