@@ -163,6 +163,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductCategoryController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SildeController.cs" />
@@ -1257,6 +1258,7 @@
     <Content Include="Content\Client\Plugins\Nivo-Slider\themes\light\bullets.png" />
     <Content Include="Content\Client\Plugins\Nivo-Slider\themes\light\light.css" />
     <Content Include="Content\Client\Plugins\Nivo-Slider\themes\light\loading.gif" />
+    <Content Include="Content\Client\template\newOrder.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1436,6 +1438,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Cart\Cart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Payment\Payment.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Payment\Success.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
