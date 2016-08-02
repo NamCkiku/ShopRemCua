@@ -14,12 +14,17 @@ namespace RemCua.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+               name: "Success",
+               url: "hoan-thanh",
+               defaults: new { controller = "Payment", action = "Success", id = UrlParameter.Optional },
+               namespaces: new string[] { "RemCua.Web.Controllers" }
+           );
+            routes.MapRoute(
                name: "Cart",
                url: "gio-hang",
                defaults: new { controller = "Cart", action = "Cart", id = UrlParameter.Optional },
                namespaces: new string[] { "RemCua.Web.Controllers" }
            );
-
 
             routes.MapRoute(
                 name: "Category",
