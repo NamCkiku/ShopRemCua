@@ -1,0 +1,110 @@
+﻿@model List<RemCua.Web.Models.ShoppingCart>
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model.Count > 0)
+{
+    <div class="cart_info">
+        <table style="width:100%" class="table table-condensed">
+            <thead>
+                <tr class="cart_menu">
+                    <td class="image">Ảnh</td>
+                    <td class="description">Tên Sản Phẩm</td>
+                    <td class="price">Giá Tiền</td>
+                    <td class="quantity">Số Lượng</td>
+                    <td class="total">Tổng Tiền</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="cart_product">
+                            <a href=""><img width="30" height="30" src="@item.Product.Image" alt="@item.Product.Image"></a>
+                        </td>
+                        <td class="cart_description">
+                            <h4><a href="">@item.Product.Name</a></h4>
+                        </td>
+                        <td class="cart_price">
+                            <p>@item.Product.Price.ToString("N0") vnđ</p>
+                        </td>
+                        <td class="cart_quantity">
+                            <input class="cart_quantity_input" type="text" name="quantity" data-id="@item.Product.ID" value="@item.Quantity" size="2">
+                        </td>
+                        <td class="cart_total">
+                            <p class="cart_total_price">@((item.Product.Price * item.Quantity).ToString("N0"))vnđ</p>
+                        </td>
+                        <td class="cart_delete">
+                            <a class="cart_quantity_delete" onclick="deleteCart(@item.Product.ID);" href=""><i class="fa fa-times"></i></a>
+                            <a class="cart_quantity_delete" onclick="updateCart();" href=""><i class="fa fa-refresh"></i></a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <span class="text-center">Chưa Có Sản Phẩm Nào Trong Giỏ Hàng</span>
+}
+<div class="cart-total">
+    <table id="total">
+        <tbody>
+            <tr>
+                <td class="right"><b>Tổng Cộng</b></td>
+                <td class="right last">@Model.Sum(x => x.Product.Price * x.Quantity).ToString("N0") VNĐ</td>
+            </tr>
+            <tr>
+                <td class="right lastrow"><b>Thành Tiền:</b></td>
+                <td class="right last lastrow">@Model.Sum(x => x.Product.Price * x.Quantity).ToString("N0") VNĐ</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="clearfix"></div>
+<div class="buttons">
+    <div class="right"><a href="/thanh-toan" class="btn btn-success"><span><i class="fa fa-shopping-cart"></i>Thanh Toán</span> </a></div>
+    <div class="center"><a href="/trang-chu" class="btn btn-danger"><span>Tiếp Tục Mua Hàng</span> </a></div>
+</div>
+<script type="text/javascript">
+    function updateCart() {
+        var listQuantity = $('.cart_quantity_input');
+        var cartList = [];
+        $.each(listQuantity, function (i, item) {
+            cartList.push({
+                Quantity: $(item).val(),
+                Product: {
+                    ID: $(item).data('id')
+                }
+            });
+        });
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("UpdateCart", "Cart")',
+            data: { dataUpdate: JSON.stringify(cartList) },
+            success: function (data) {
+                if (data.status == true) {
+                    window.location.href = "/gio-hang"
+                }
+            },
+        });
+    }
+</script>
+<script>
+    function deleteCart(id) {
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("RemoveAt", "Cart")/' + id,
+            dataType: 'json',
+            success: function (data) {
+                if (data.status == true) {
+                    window.location.href = "/gio-hang"
+                }
+            },
+        });
+    }
+</script>
