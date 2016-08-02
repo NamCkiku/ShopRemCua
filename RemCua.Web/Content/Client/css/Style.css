@@ -853,7 +853,7 @@ a .counter {
                     width: 50px;
                     float: left;
                     margin-right: 8px;
-                    height:50px;
+                    height: 50px;
                 }
 
 
@@ -941,7 +941,7 @@ a .counter {
 
 .hnphone {
     background-color: white;
-    margin-bottom:15px;
+    margin-bottom: 15px;
 }
 
 .pnright > p {
@@ -1474,3 +1474,45 @@ footer {
     padding: 15px;
     float: left;
 }
+
+
+
+
+/* ****************************************************************************
+		Paging
+**************************************************************************** */
+.fillter {
+    padding: 0.5em;
+}
+
+#pnHaveData .fillter {
+    padding: 0;
+}
+
+.fillter ul.paging {
+    float: left;
+    margin-left: 400px;
+}
+
+ul.paging li {
+    border-bottom: medium none !important;
+    padding: 0 0 0 3px;
+}
+
+    ul.paging li span a {
+        background: #fff;
+        color: #333;
+        border: 1px solid #dedede;
+        border-radius: 3px;
+        display: inline-block;
+        margin-right: 2px;
+        padding: 5px 15px;
+    }
+
+        ul.paging li span a:hover, ul.paging li span a.selected, ul.paging li span a.active {
+            background: #EE4935;
+            color: #FFFFFF;
+            border: 1px solid #B37921;
+            text-decoration: none;
+            padding: 5px 15px;
+        }
