@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace RemCua.Web.Areas.Admin.Controllers
 {
-    public class ProductAdminController : Controller
+    public class ProductAdminController : BaseController
     {
         private IProductService _productService;
         private IProductCategoryService _productCategoryService;
@@ -26,7 +26,7 @@ namespace RemCua.Web.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult ViewProduct()
         {
-            var list = _productService.GetAll();
+            var list = _productService.GetAll().OrderByDescending(x=>x.CreatedDate);
             return View(list);
         }
 
@@ -99,6 +99,7 @@ namespace RemCua.Web.Areas.Admin.Controllers
                     _productService.Update(product);
                     _productService.SaveChanges();
                     ViewBag.Message = "Chúc Mừng Bạn Đã Sửa Thành Công";
+                    return RedirectToAction("ViewProduct", "ProductAdmin");
                 }
 
             }
@@ -106,7 +107,8 @@ namespace RemCua.Web.Areas.Admin.Controllers
             {
                 ViewBag.Message = "Sửa Không Thành Công";
             }
-            return RedirectToAction("ViewProduct", "ProductAdmin");
+            SelectViewBag();
+            return View(product);
         }
 
 
@@ -125,6 +127,17 @@ namespace RemCua.Web.Areas.Admin.Controllers
             var product = _productService.Delete(id);
             _productService.SaveChanges();
             return RedirectToAction("ViewProduct", product);
+        }
+
+        [HttpPost]
+        public JsonResult ChangeStatus(int id)
+        {
+            var result = _productService.ChangeStatus(id);
+            _productService.SaveChanges();
+            return Json(new
+            {
+                Status = result
+            });
         }
     }
 }

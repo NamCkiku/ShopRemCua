@@ -128,26 +128,19 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label>Meta Keyword</label>(<span style="color:#FF0000">*</span>)
-                                    @Html.TextBoxFor(model => model.MetaKeyword, new { @class = "form-control", placeholder = "Số Lượng..." })
-                                    @Html.ValidationMessageFor(model => model.MetaKeyword, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group">
                                     @Html.CheckBoxFor(model => model.Status, new { }) Kích Hoạt
                                     @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    @Html.CheckBoxFor(model => model.HomeFlag.Value, new { }) Hiện Lên Trang Chủ
+                                    @Html.CheckBoxFor(model => model.HomeFlag, new { }) Hiện Lên Trang Chủ
                                     @Html.ValidationMessageFor(model => model.HomeFlag, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    @Html.CheckBoxFor(model => model.HotFlag.Value, new { }) Sản Phẩm Nổi Bật
+                                    @Html.CheckBoxFor(model => model.HotFlag, new { }) Sản Phẩm Nổi Bật
                                     @Html.ValidationMessageFor(model => model.HotFlag, "", new { @class = "text-danger" })
                                 </div>
                             </div>

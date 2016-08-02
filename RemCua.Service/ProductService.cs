@@ -25,6 +25,8 @@ namespace RemCua.Service
         IEnumerable<Product> ListNewProduct(int top);
 
         IEnumerable<Product> GetReatedProduct(int id, int top);
+
+        bool ChangeStatus(int id);
         void SaveChanges();
     }
     public class ProductService : IProductService
@@ -74,7 +76,7 @@ namespace RemCua.Service
         /// <returns></returns>
         public IEnumerable<Product> ListFeatureProduct(int top)
         {
-            return _productRepository.GetMulti(x => x.Status && x.HotFlag == true).OrderByDescending(x => x.CreatedDate).Take(top);
+            return _productRepository.GetMulti(x => x.Status == true && x.HotFlag == true).OrderByDescending(x => x.CreatedDate).Take(top);
         }
         /// <summary>
         /// Sản Phẩm Mới Nhất
@@ -83,13 +85,21 @@ namespace RemCua.Service
         /// <returns></returns>
         public IEnumerable<Product> ListNewProduct(int top)
         {
-            return _productRepository.GetMulti(x => x.Status).OrderByDescending(x => x.CreatedDate).Take(top);
+            return _productRepository.GetMulti(x => x.Status == true).OrderByDescending(x => x.CreatedDate).Take(top);
         }
 
         public IEnumerable<Product> GetReatedProduct(int id, int top)
         {
             var product = _productRepository.GetSingleById(id);
             return _productRepository.GetMulti(x => x.Status == true && x.ID != id && x.CategoryID == product.CategoryID).OrderByDescending(x => x.CreatedDate).Take(top);
+        }
+
+        public bool ChangeStatus(int id)
+        {
+
+            var product = _productRepository.GetSingleById(id);
+            product.Status = !product.Status;
+            return product.Status;
         }
     }
 }
