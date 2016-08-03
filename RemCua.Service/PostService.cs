@@ -23,6 +23,8 @@ namespace RemCua.Service
 
         Post GetById(int id);
 
+        bool ChangeStatus(int id);
+
         IEnumerable<Post> GetListPosyPaging(int page, int pageSize, out int totalRow);
         IEnumerable<Post> GetReatedPost(int id, int top);
 
@@ -82,6 +84,13 @@ namespace RemCua.Service
             _unitOfWork.Commit();
         }
 
+        public bool ChangeStatus(int id)
+        {
+
+            var post = _postRepository.GetSingleById(id);
+            post.Status = !post.Status;
+            return post.Status;
+        }
         public void Update(Post post)
         {
             _postRepository.Update(post);

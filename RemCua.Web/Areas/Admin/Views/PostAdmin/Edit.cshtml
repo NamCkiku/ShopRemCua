@@ -1,0 +1,127 @@
+﻿@model RemCua.Entities.Models.Post
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    Thêm Sản Phẩm
+                </header>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="col-lg-6">
+                                @Html.ValidationMessage("", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    <label>Tiêu Đề Tin</label>(<span style="color:#FF0000">*</span>)
+                                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Tiêu Đề Seo</label>(<span style="color:#FF0000">*</span>)
+                                    @Html.TextBoxFor(model => model.Alias, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Alias, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Loại Tin Tức</label>(<span style="color:#FF0000">*</span>)
+                                    @Html.DropDownListFor(model => model.CategoryID, (SelectList)ViewBag.CategoryID, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Ngày Nhập</label>(<span style="color:#FF0000">*</span>)
+                                    @Html.TextBoxFor(model => model.CreatedDate, new { @class = "form-control form_datetime datepicker", placeholder = "Ngày Nhập..." })
+                                    @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                @*<input type="text" name="Picture" id="txthinhanh2" class="form-control" placeholder="Hình Ảnh">*@
+                                @Html.TextBoxFor(model => model.Image, new { @class = "form-control", placeholder = "Hình Ảnh..." })
+                                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-lg-2">
+                                <button type="button" class="btn btn-primary" id="btnSelectImage">
+                                    <i class="fa fa-cloud-upload"></i>
+                                    <span>Chọn Ảnh</span>
+                                </button>
+                            </div>
+                            <div class="col-lg-3 col-lg-offset-3">
+                                <div class="form-group">
+                                    @Html.CheckBoxFor(model => model.Status, new { }) Kích Hoạt
+                                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Mô Tả Ngắn</label>(<span style="color:#FF0000">*</span>)
+                                    @Html.TextAreaFor(model => model.Description, 7, 10, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Mô Tả Sản Phẩm</label>
+                                    @Html.TextAreaFor(model => model.Content, new { @class = "form-control", id = "txtContent" })
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4">
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <button type="submit" class="btn btn-round btn-primary btn-md" style="float: right;">
+                <i class="fa fa-refresh"></i>Sửa Sản Phẩm
+            </button>
+        </div>
+    </div>
+}
+
+@section scripts
+{
+    <link href="~/Content/Admin/assets/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+    <script src="~/Content/Admin/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="~/Content/Admin/assets/ckfinder/ckfinder.js"></script>
+    <script src="~/Content/Admin/assets/ckeditor/ckeditor.js"></script>
+    <script>
+
+        $('.datepicker').datepicker({
+        });
+
+        var editor = CKEDITOR.replace('txtContent', {
+            customConfig: '/Content/Admin/assets/ckeditor/config.js',
+        });
+
+        $('#btnSelectImage').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#Image').val(url);
+            };
+            finder.popup();
+        })
+    </script>
+    @if (ViewBag.message != null)
+    {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                toastr.success('@ViewBag.message')
+            });
+        </script>
+    }
+}

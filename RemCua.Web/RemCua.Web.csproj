@@ -156,6 +156,7 @@
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PostAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductAdminController.cs" />
     <Compile Include="Areas\Admin\Models\RegisterModel.cs" />
     <Compile Include="Areas\Admin\Models\UserViewModel.cs" />
@@ -1276,6 +1277,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\Post\" />
     <Folder Include="Scripts\" />
     <Folder Include="UploadFile\" />
     <Folder Include="Views\Menu\" />
@@ -1452,6 +1454,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Post\Detail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\PostAdmin\ViewPost.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\PostAdmin\Add.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\PostAdmin\Edit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201608020122346_updateHotFlag.Designer.cs">
       <DependentUpon>201608020122346_updateHotFlag.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608031451530_updateposthotplag.cs" />
+    <Compile Include="Migrations\201608031451530_updateposthotplag.Designer.cs">
+      <DependentUpon>201608031451530_updateposthotplag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Feedback.cs" />
@@ -113,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608020122346_updateHotFlag.resx">
       <DependentUpon>201608020122346_updateHotFlag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608031451530_updateposthotplag.resx">
+      <DependentUpon>201608031451530_updateposthotplag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
