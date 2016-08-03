@@ -1885,3 +1885,141 @@ checkout {
     background-image: -ms-linear-gradient(top, #fdedce 0%, #fef7e9 100%);
     font-size: 14px;
 }
+
+
+
+
+
+
+/* ****************************************************************************
+		NEWS
+**************************************************************************** */
+
+.news-items {
+    border-bottom: 1px solid #E0D6D6;
+    clear: both;
+    display: inline-block;
+    padding: 10px 1%;
+    width: 98%;
+}
+
+    .news-items img {
+        height: 150px;
+        width: 150px !important;
+    }
+
+    .news-items a.news-image {
+        border: 1px solid #ccc;
+        display: block;
+        float: left;
+        margin-right: 10px;
+        max-height: 150px !important;
+        max-width: 156px !important;
+        padding: 2px;
+    }
+
+    .news-items p.title {
+        text-align: justify;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .news-items .date {
+        clear: both;
+        color: #666;
+        display: inline-block;
+        font: 11px Tahoma,Geneva,sans-serif;
+        padding: 5px 0;
+    }
+
+    .news-items p.title a, .news-items p.title a:link, .news-items p.title a:visited {
+        color: #005fbd;
+        font: bold 12px Arial,Helvetica,sans-serif;
+        text-decoration: none;
+    }
+
+
+.detail-news {
+    padding: 10px;
+}
+
+    .detail-news h1 {
+        font-size: 14px;
+        color: Black;
+        padding: 10px;
+        font-weight: bold;
+    }
+
+    .detail-news .meta-title {
+        
+    }
+
+        .detail-news .meta-title img {
+            width: 200px;
+            margin-right: 10px;
+            float: left;
+            height: 200px;
+        }
+
+        .detail-news .meta-title p {
+            font-style: italic;
+            display: inherit !important;
+        }
+
+    .detail-news .content-detail {
+        font-size: 13px;
+        text-align: justify;
+    }
+
+        .detail-news .content-detail p {
+            padding: 10px;
+        }
+
+        .detail-news .content-detail img {
+            margin: auto;
+            width: 80%;
+        }
+
+.box-print {
+    padding-left: 10px;
+}
+
+    .box-print .print {
+        display: block;
+        text-align: right;
+    }
+
+        .box-print .print span {
+            text-align: left;
+            clear: both;
+            color: #666;
+            display: inline-block;
+            font: 11px Tahoma,Geneva,sans-serif;
+            padding: 5px 0;
+            float: left;
+        }
+
+        .box-print .print a {
+            color: #000 !important;
+            font-family: arial;
+            font-size: 12px;
+            font-weight: bold;
+            padding-left: 3px;
+            padding-right: 3px;
+            text-align: right;
+        }
+
+.news-other.box-news {
+    padding:10px;
+}
+
+    .news-other.box-news a {
+        font-family: arial;
+        font-size: 12px;
+    }
+
+    .news-other.box-news li {
+        background: url("../img/next-icon.png") no-repeat scroll 10px 10px;
+        padding: 5px 10px 0 25px;
+        text-align: justify;
+    }
