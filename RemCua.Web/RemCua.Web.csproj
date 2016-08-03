@@ -164,6 +164,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProductCategoryController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SildeController.cs" />
@@ -1217,6 +1218,7 @@
     <Content Include="Content\Client\img\hotline.gif" />
     <Content Include="Content\Client\img\loading.gif" />
     <Content Include="Content\Client\img\logo_phuc.png" />
+    <Content Include="Content\Client\img\next-icon.png" />
     <Content Include="Content\Client\img\payment.png" />
     <Content Include="Content\Client\img\rem-vai-rv241-300x300.jpg" />
     <Content Include="Content\Client\img\roman3_4.jpg" />
@@ -1444,6 +1446,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Payment\Success.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Post\Post.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Post\Detail.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

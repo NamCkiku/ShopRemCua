@@ -23,6 +23,9 @@ namespace RemCua.Service
 
         Post GetById(int id);
 
+        IEnumerable<Post> GetListPosyPaging(int page, int pageSize, out int totalRow);
+        IEnumerable<Post> GetReatedPost(int id, int top);
+
         void SaveChanges();
     }
     public class PostService : IPostService
@@ -55,9 +58,23 @@ namespace RemCua.Service
             return _postRepository.GetSingleById(id);
         }
 
+        public IEnumerable<Post> GetListPosyPaging(int page, int pageSize, out int totalRow)
+        {
+            var query = _postRepository.GetAll();
+            totalRow = query.Count();
+
+            return query.Skip((page - 1) * pageSize).Take(pageSize);
+        }
+
         public IEnumerable<Post> GetNewPost(int top)
         {
             return _postRepository.GetMulti(x => x.Status).OrderByDescending(x => x.CreatedDate).Take(top);
+        }
+
+        public IEnumerable<Post> GetReatedPost(int id, int top)
+        {
+            var post = _postRepository.GetSingleById(id);
+            return _postRepository.GetMulti(x => x.Status == true && x.ID != id && x.CategoryID == post.CategoryID).OrderByDescending(x => x.CreatedDate).Take(top);
         }
 
         public void SaveChanges()

@@ -59,6 +59,7 @@ namespace RemCua.Web.Controllers
                     var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
                     MailHelper.SendMail(order.CustomerEmail, "Đơn hàng mới từ Shop Rèm Cửa", content);
                     MailHelper.SendMail(toEmail, "Đơn hàng mới từ Shop Rèm Cửa", content);
+                    Session[CommonConstants.CartSession] = null;
                     return Redirect("/hoan-thanh");
                 }
             }

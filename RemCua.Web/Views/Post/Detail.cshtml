@@ -1,0 +1,98 @@
+﻿@model RemCua.Entities.Models.Post
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var ReatedPost = (IEnumerable<RemCua.Entities.Models.Post>)ViewBag.ReatedPost;
+    var ListFeatureProduct = (IEnumerable<RemCua.Entities.Models.Product>)ViewBag.Feature;
+}
+
+<div class="content-left">
+    <div class="box-module">
+        <div>
+            <div class="title_module">
+                <h3 class=""><span>@Model.Name</span></h3>
+            </div>
+            <div class="box-content">
+                <div class="">
+                    <div class="box-print">
+                        <div class="print">
+                            <span>@Model.CreatedDate.Value.ToString("dddd,dd/MM/yyyy|zzz")</span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="detail-news">
+                        <div class="meta-title">
+                            <a href="">
+                                <img src="@Model.Image" />
+                            </a>
+                            
+                            <p>
+                                @Model.Description
+                            </p>
+                            <br />
+                        </div>
+
+                        <div class="content-detail">
+                            @Html.Raw(Model.Content)
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="news-other box-news">
+                        <div class="box-title">
+                            <span style="color: #004276; font-weight: bold; font-family: Arial; background-color: #f0f0f0;padding-right: 3px;">Các tin khác</span>
+                        </div>
+                        <ul>
+                            @foreach (var item in ReatedPost)
+                            {
+                                var url = "/chi-tiet-tin/" + item.Alias + "-" + item.ID;
+                                <li>
+                                    <a href="@url">
+                                        @item.Name
+                                    </a>
+                                    <span>(@item.CreatedDate.Value.ToString("dd/MM/yyyy"))</span>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+</div>
+<div class="content-right">
+    <div class="box-module">
+        @{Html.RenderAction("_SupportOnline", "Home");}
+    </div>
+    <div class="clearfix"></div>
+    <div class="box-module">
+        @{Html.RenderAction("_Ads", "Home");}
+    </div>
+    <div class="clearfix"></div>
+    <div class="box-module">
+        <div>
+            <div class="title_module">
+                <h3 class=""><span>Sản Phẩm Nổi Bật</span></h3>
+            </div>
+            <div class="box-content">
+                <div class="row-product-widget">
+                    <ul class="product_list_widget">
+                        @foreach (var item in ListFeatureProduct)
+                        {
+                            <li>
+                                <a href="#">
+                                    <img src="@item.Image" />
+                                    <span>@item.Name</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
