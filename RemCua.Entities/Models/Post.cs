@@ -1,4 +1,4 @@
-namespace RemCua.Entities.Models
+﻿namespace RemCua.Entities.Models
 {
     using System;
     using System.Collections.Generic;
@@ -16,22 +16,29 @@ namespace RemCua.Entities.Models
 
         public int ID { get; set; }
 
-        [Required]
+        [Display(Name = "Tên Sản Phẩm")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Tiêu Đề Tin")]
         [StringLength(256)]
         public string Name { get; set; }
 
-        [Required]
+        [Display(Name = "Tiêu Đề Seo")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Tiêu Đề Seo")]
         [StringLength(256)]
         public string Alias { get; set; }
 
         public int CategoryID { get; set; }
 
         [StringLength(256)]
+        [Display(Name = "Ảnh Sản Phẩm")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Ảnh Sản Phẩm")]
         public string Image { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Mô Tả Ngắn")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Mô Tả Ngắn")]
         public string Description { get; set; }
-
+        [Display(Name = "Nội Dung")]
+        [Required(ErrorMessage = "Bạn Phải Nhập Nội Dung")]
         public string Content { get; set; }
 
         public bool? HomeFlag { get; set; }
