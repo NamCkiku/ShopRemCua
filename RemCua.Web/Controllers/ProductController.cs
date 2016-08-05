@@ -48,5 +48,25 @@ namespace RemCua.Web.Controllers
             ViewBag.Feature = _productService.ListFeatureProduct(10);
             return View(paginationSet);
         }
+        public ActionResult Search(string keyword, int page = 1, string sort = "")
+        {
+            int pageSize = 16;
+            int totalRow = 0;
+            var productModel = _productService.Search(keyword, page, pageSize, out totalRow);
+            int totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
+
+            ViewBag.Keyword = keyword;
+            var paginationSet = new PaginationSet<Product>()
+            {
+                Items = productModel,
+                MaxPage = 5,
+                Page = page,
+                TotalCount = totalRow,
+                TotalPages = totalPage
+            };
+            ViewBag.NewPost = _postService.GetNewPost(6);
+            ViewBag.Feature = _productService.ListFeatureProduct(10);
+            return View(paginationSet);
+        }
     }
 }

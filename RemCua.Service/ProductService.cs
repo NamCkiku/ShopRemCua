@@ -28,6 +28,8 @@ namespace RemCua.Service
 
         IEnumerable<Product> GetListProductByCategoryIdPaging(int categoryId, int page, int pageSize, out int totalRow);
 
+        IEnumerable<Product> Search(string keyword, int page, int pageSize, out int totalRow);
+
         bool ChangeStatus(int id);
         void SaveChanges();
     }
@@ -107,6 +109,15 @@ namespace RemCua.Service
         public IEnumerable<Product> GetListProductByCategoryIdPaging(int categoryId, int page, int pageSize, out int totalRow)
         {
             var query = _productRepository.GetMulti(x => x.Status == true && x.CategoryID == categoryId);
+            totalRow = query.Count();
+
+            return query.Skip((page - 1) * pageSize).Take(pageSize);
+        }
+
+        public IEnumerable<Product> Search(string keyword, int page, int pageSize, out int totalRow)
+        {
+            var query = _productRepository.GetMulti(x => x.Status && x.Name.Contains(keyword));
+
             totalRow = query.Count();
 
             return query.Skip((page - 1) * pageSize).Take(pageSize);
