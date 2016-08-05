@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace RemCua.Web.Areas.Admin.Controllers
 {
-    public class PostAdminController : Controller
+    public class PostAdminController : BaseController
     {
         private IPostService _postService;
         private IPostCategoryService _postCategoryService;

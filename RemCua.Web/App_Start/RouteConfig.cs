@@ -13,6 +13,12 @@ namespace RemCua.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            
+
+
+
+
             routes.MapRoute(
                 name: "Search",
                 url: "tim-kiem/{keyword}",

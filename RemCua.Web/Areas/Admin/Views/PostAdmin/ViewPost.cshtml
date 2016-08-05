@@ -12,7 +12,7 @@
             </header>
             <div class="panel-body">
                 <div class="adv-table">
-                    <a href="/Admin/PostAdmin/Add" id="create" class="btn btn-round btn-primary btn-md">
+                    <a href="/them-tin-tuc" id="create" class="btn btn-round btn-primary btn-md">
                         <i class="fa fa-plus"></i>Thêm
                     </a>
                     <div class="space15"></div>
@@ -39,7 +39,7 @@
                                     <td class="text-center">@item.CreatedDate</td>
                                     <td class="text-center"><button type="button" class="btn btn-round btn-xs btn-success btn-active" data-id="@item.ID"> @Html.Raw(item.Status ? "Kích hoạt" : "Khóa")</button></td>
                                     <td class="text-center">
-                                        <a href="/Admin/PostAdmin/Edit/@item.ID" class="btn btn-round btn-primary btn-xs btnupdate"><i class="fa fa-pencil-square-o"></i>Sửa</a>
+                                        <a href="/sua-tin-tuc/@item.ID" class="btn btn-round btn-primary btn-xs btnupdate"><i class="fa fa-pencil-square-o"></i>Sửa</a>
                                         <button type="button" id="btnDelete" data-id="@item.ID" class="btn btn-round btn-danger btn-xs btnDelete" data-toggle="modal" data-target="#mydeleteProduct">
                                             <i class="fa fa-trash-o"></i>Xóa
                                         </button>
