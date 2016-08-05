@@ -14,6 +14,14 @@ namespace RemCua.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Search",
+                url: "tim-kiem/{keyword}",
+                defaults: new { controller = "Product", action = "Search", keyword = UrlParameter.Optional },
+                namespaces: new string[] { "RemCua.Web.Controllers" }
+            );
+
+
+            routes.MapRoute(
                 name: "DetailNews",
                 url: "chi-tiet-tin/{alias}-{id}",
                 defaults: new { controller = "Post", action = "Detail", alias = UrlParameter.Optional },

@@ -603,7 +603,7 @@ a .counter {
     padding: 20px 10px 0px 20px;
     position: absolute;
     top: 0px !important;
-    width: 670px;
+    width: 200px;
     z-index: 1000000;
 }
 
@@ -619,7 +619,7 @@ a .counter {
     float: left;
     margin-bottom: 10px;
     min-height: 135px;
-    width: 33%;
+    width: 100%;
 }
 
 .sub-cate > ul > li a {

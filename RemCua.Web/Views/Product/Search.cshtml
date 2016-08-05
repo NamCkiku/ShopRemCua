@@ -10,7 +10,7 @@
     <div class="box-module">
         <div>
             <div class="title_module">
-                <h3 class=""><span>@Category.Name</span></h3>
+                <h3 class=""><span>Tìm Kiếm</span></h3>
             </div>
             <div class="box-content">
                 @if (Model.Count > 0)
@@ -123,12 +123,12 @@
                         @foreach (var item in ListFeatureProduct)
                         {
                             var url = "/chi-tiet/" + item.Alias + "-" + item.ID;
-                        <li>
-                            <a href="@url">
-                                <img src="@item.Image" />
-                                <span>@item.Name</span>
-                            </a>
-                        </li>
+                            <li>
+                                <a href="@url">
+                                    <img src="@item.Image" />
+                                    <span>@item.Name</span>
+                                </a>
+                            </li>
                         }
                     </ul>
                 </div>

@@ -26,9 +26,14 @@
                 <li class="nav-4"><a href="/trang/lien-he" class="top-link "><span><b>Liên hệ</b></span></a></li>
                 <li class="nav-5"><a href="/gio-hang" class="last top-link"><span><b>Giỏ Hàng</b></span></a></li>
                 <li id="searchmenu">
-                    <input type="text" value="Tìm kiếm..." id="txtKeywordMenu" class="search-input" onfocus="if (this.value=='Tìm kiếm...') this.value='';" onblur="if (this.value=='') this.value='Tìm kiếm...';">
-                    <a class="search-button" href="#"></a>
+                    @using (Html.BeginForm("Search", "Product", FormMethod.Post))
+                    {
+                        <input type="text" value="Tìm kiếm..." id="keyword" name="keyword" class="search-input" onfocus="if (this.value=='Tìm kiếm...') this.value='';" onblur="if (this.value=='') this.value='Tìm kiếm...';">
+                        <button type="submit" class="search-button"></button>
+                    }
                 </li>
+
+
             </ul>
         </div>
     </div>
