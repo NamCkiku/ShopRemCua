@@ -30,7 +30,7 @@ namespace RemCua.Service
         bool CheckUserName(string userName);
 
         bool CheckEmail(string email);
-
+        bool ChangeStatus(int id);
         void SaveChanges();
     }
     public class UserService : IUserService
@@ -95,6 +95,13 @@ namespace RemCua.Service
         public bool CheckEmail(string email)
         {
             return _userRepository.CheckEmail(email);
+        }
+
+        public bool ChangeStatus(int id)
+        {
+            var user = _userRepository.GetSingleById(id);
+            user.Status = !user.Status;
+            return user.Status;
         }
     }
 }

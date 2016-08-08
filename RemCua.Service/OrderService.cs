@@ -20,6 +20,7 @@ namespace RemCua.Service
         IEnumerable<Order> GetAll();
 
         Order GetById(int id);
+        bool ChangeStatus(int id);
 
         void SaveChanges();
     }
@@ -52,6 +53,13 @@ namespace RemCua.Service
         public Order GetById(int id)
         {
             return _orderRepository.GetSingleById(id);
+        }
+        public bool ChangeStatus(int id)
+        {
+
+            var order = _orderRepository.GetSingleById(id);
+            order.Status = !order.Status;
+            return order.Status;
         }
 
         public void SaveChanges()
