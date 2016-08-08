@@ -82,8 +82,9 @@
                     <ul class="product_list_widget">
                         @foreach (var item in ListFeatureProduct)
                         {
+                            var url = "/chi-tiet/" + item.Alias + "-" + item.ID;
                             <li>
-                                <a href="#">
+                                <a href="@url">
                                     <img src="@item.Image" />
                                     <span>@item.Name</span>
                                 </a>
