@@ -15,24 +15,24 @@
             <div class="box-content">
                 @if (Model.Count > 0)
                 {
-                    <div class="row-product">
-                        @foreach (var item in Model.Items)
+                <div class="row-product">
+                    @foreach (var item in Model.Items)
                         {
                             var url = "/chi-tiet/" + item.Alias + "-" + item.ID;
-                            <div class="box-product">
-                                <a class="image" href="@url" title="View more">
-                                    <img src="@item.Image" />
-                                </a>
-                                <h3 class="name"><a href="@url" title="">@item.Name</a></h3>
-                                <p class="wrap_price"> <span class="price">@(item.Price == 0 ? "Liên hệ" : item.Price.ToString("N0")) VNĐ</span> </p>
-                                <a href="javascript:;" onclick="addProduct(@item.ID)" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
-                            </div>
+                        <div class="box-product">
+                            <a class="image" href="@url" title="View more">
+                                <img src="@item.Image" />
+                            </a>
+                            <h3 class="name"><a href="@url" title="">@item.Name</a></h3>
+                            <p class="wrap_price"> <span class="price">@(item.Price == 0 ? "Liên hệ" : item.Price.ToString("N0")) VNĐ</span> </p>
+                            <a href="javascript:;" onclick="addProduct(@item.ID)" class="btn-class btn-cart"><span><i class="fa fa-shopping-cart"></i>Đặt hàng</span> </a>
+                        </div>
                         }
-                    </div>
+                </div>
                 }
                 else
                 {
-                    <div class="text-center">Không có bản ghi nào được tìm thấy.</div>
+                <div class="text-center">Không có bản ghi nào được tìm thấy.</div>
                 }
                 <div class="clearfix"></div>
                 @if (Model.TotalPages > 1)
@@ -41,35 +41,35 @@
                     var startPageIndex = Math.Max(1, Model.Page - Model.MaxPage / 2);
                     var endPageIndex = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
 
-                    <div class="fillter clearfix">
-                        <ul class="paging">
-                            <li class="clearfix">
-                                <span id="pagerBottom">
-                                    @if (Model.Page > 1)
+                <div class="fillter clearfix">
+                    <ul class="paging">
+                        <li class="clearfix">
+                            <span id="pagerBottom">
+                                @if (Model.Page > 1)
                                     {
-                                        <a id="lastControl" class="pageLast" href="?page=@(Model.Page-1)">Quay Lại <span>«</span></a>
+                                    <a id="lastControl" class="pageLast" href="?page=@(Model.Page-1)">Quay Lại <span>«</span></a>
                                     }
-                                    @for (int i = startPageIndex; i <= endPageIndex; i++)
+                                @for (int i = startPageIndex; i <= endPageIndex; i++)
                                     {
                                         if (Model.Page == i)
                                         {
-                                            <a href="?page=@i" class="active">@i</a>
+                                    <a href="?page=@i" class="active">@i</a>
                                         }
                                         else
                                         {
-                                            <a class="pageNumberView" href="?page=@i">@i</a>
+                                    <a class="pageNumberView" href="?page=@i">@i</a>
                                         }
 
 
                                     }
-                                    @if (Model.Page < Model.TotalPages)
+                                @if (Model.Page < Model.TotalPages)
                                     {
-                                        <a id="lastControl" class="pageLast" href="?page=@(Model.Page+1)">Tiếp Tục <span>»</span></a>
+                                    <a id="lastControl" class="pageLast" href="?page=@(Model.Page+1)">Tiếp Tục <span>»</span></a>
                                     }
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
                 }
 
             </div>
@@ -80,32 +80,6 @@
 <div class="content-right">
     <div class="box-module">
         @{Html.RenderAction("_SupportOnline", "Home");}
-    </div>
-    <div class="clearfix"></div>
-    <div class="box-module">
-        <div>
-            <div class="title_module">
-                <h3 class=""><span>Mạng Xã Hội</span></h3>
-            </div>
-            <div class="box-content">
-                <div class="row-module_opinion">
-                    <div id="fb-root"></div>
-                    <script>
-                        (function (d, s, id) {
-                            var js, fjs = d.getElementsByTagName(s)[0];
-                            if (d.getElementById(id)) return;
-                            js = d.createElement(s); js.id = id;
-                            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.7&appId=597788163717802";
-                            fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));</script>
-                    <div class="fb-page" data-width="240" data-height="230" data-href="https://www.facebook.com/sgiaitri/" data-tabs="false" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true">
-                        <blockquote cite="https://www.facebook.com/sgiaitri/" class="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/sgiaitri/">Shop Giải Trí</a>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="clearfix"></div>
     <div class="box-module">
@@ -172,50 +146,7 @@
             </div>
         </div>
     </div>
-    <div class="clearfix"></div>
-    <div class="box-module">
-        <div>
-            <div class="title_module">
-                <h3 class=""><span>Ý Kiến Khách Hàng</span></h3>
-            </div>
-            <div class="box-content">
-                <div class="row-module_opinion">
-                    <p>Bạn đánh giá thế nào về chất lượng phục vụ của chúng tôi</p>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
-                            Rất hài lòng
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
-                            Hài lòng
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
-                            Không hài lòng
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
-                            Yếu Kém
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <div class="text-center box-margion-top">
-                            <input type="button" class="btn-opinion" value="Bình chọn">
-                            <input type="button" class="btn-result" value="Kết quả">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
+    <div class="clearfix"></div>>
 
 </div>
 
