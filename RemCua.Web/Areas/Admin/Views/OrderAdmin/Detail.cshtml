@@ -1,0 +1,100 @@
+﻿@model IEnumerable<RemCua.Web.Areas.Admin.Models.OrderModel>
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<table style="background-color: white; padding: 20px" align="center" border="0" cellpadding="10" cellspacing="0" width="100%">
+    <tbody>
+        <tr>
+            <td colspan="2" style="height:62px;color:#606060;font-size:18px;font-family:Arial">
+                <center>
+                    THÔNG TIN ĐẶT HÀNG
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding:0;color:#363636;font-size:16px;height:24px;font-family:Arial">
+                &nbsp;&nbsp;&nbsp;&nbsp;Thông tin khách hàng
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <table style="background-color:#f4f4f4" border="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <td colspan="2" style="line-height:40px;font-size:12px;color:#606060;font-weight:bold;font-family:Arial">
+                                &nbsp;&nbsp;&nbsp;&nbsp;Khách hàng: @ViewBag.ShipName
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="180" style="line-height:15px;font-size:12px;color:#606060;font-family:Arial">&nbsp;&nbsp;&nbsp;&nbsp;Địa chỉ email</td>
+                            <td style="line-height:15px;font-size:12px;color:#606060;font-family:Arial">:&nbsp; <a style="color:#606060;font-family:Arial;text-decoration:none" href="mailto:strongking1271995@gmail.com" target="_blank">@ViewBag.ShipEmail</a></td>
+                        </tr>
+                        <tr>
+                            <td width="180" style="line-height:15px;font-size:12px;color:#606060;font-family:Arial">&nbsp;&nbsp;&nbsp;&nbsp;Địa chỉ liên hệ</td>
+                            <td style="line-height:15px;font-size:12px;color:#606060;font-family:Arial">:&nbsp; @ViewBag.ShipAddress</td>
+                        </tr>
+                        <tr>
+                            <td width="180" style="line-height:15px;font-size:12px;color:#606060;font-family:Arial">&nbsp;&nbsp;&nbsp;&nbsp;Điện thoại di động </td>
+                            <td style="line-height:15px;font-size:12px;color:#606060;font-family:Arial">:&nbsp; @ViewBag.ShipMobile</td>
+                        </tr>
+                        <tr>
+                            <td style="line-height:15px">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding:0">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding:0;color:#363636;font-size:16px;height:24px;font-family:Arial">
+                &nbsp;&nbsp;&nbsp;&nbsp;Chi tiết đơn hàng
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <table style="background-color:white;width:100%" align="center" border="0" cellpadding="10" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <th style="border: solid 1px #d7d7d7; color: White; background-color: #5D7B9D; width: 5%; font-size: 12px; font-family: Arial; ">STT</th>
+                            <th style="text-align: left; border: solid 1px #d7d7d7; border-left: 0; color: White; background-color: #5D7B9D; font-size: 12px; font-family: Arial; ">Tên sản phẩm</th>
+                            <th style="text-align: left; border: solid 1px #d7d7d7; border-left: 0; color: White; background-color: #5D7B9D; font-size: 12px; font-family: Arial; ">Đơn giá</th>
+                            <th style="text-align: left; border: solid 1px #d7d7d7; border-left: 0; color: White; background-color: #5D7B9D; font-size: 12px; font-family: Arial; ">Số lượng</th>
+                            <th style="text-align: right; border: solid 1px #d7d7d7; border-left: 0; color: White; background-color: #5D7B9D; font-size: 12px; font-family: Arial; ">Thành tiền</th>
+                        </tr>
+                        @{
+                            decimal total = 0;
+                            int i = 1;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            double pr = (double)(item.Product.Price * item.OrderDetail.Quantity);
+                            <tr>
+                                <td style="text-align: center; border: 1px solid #d7d7d7; border-top: 0; color: #606060; font-size: 12px; font-family: Arial">@(i++)</td>
+                                <td style="border: 1px solid #d7d7d7; color: #606060; border-top: 0; border-left: 0; font-size: 12px; font-family: Arial">
+                                    @item.Product.Name<br>
+                                </td>
+                                <td style="text-align: right; border: 1px solid #d7d7d7; border-top: 0; border-left: 0; color: #606060; font-size: 12px; font-family: Arial">@String.Format("{0:N0}", item.Product.Price).Replace(",", ".") VNĐ</td>
+                                <td style="border: 1px solid #d7d7d7; color: #606060; border-top: 0; border-left: 0; font-family: Arial; font-size: 12px">@item.OrderDetail.Quantity</td>
+                                <td style="text-align: right; border: 1px solid #d7d7d7; border-top: 0; border-left: 0; color: #606060; font-family: Arial; font-size: 12px">@String.Format("{0:N0}", pr).Replace(",", ".") VNĐ</td>
+
+                            </tr>
+                            total += (decimal)pr;
+                        }
+                        <tr>
+                            <td style="text-align:right;border:1px solid #d7d7d7;color:#606060;border-top:0;padding:10px;font-size:12px;font-family:Arial" colspan="4">Tổng tiền</td>
+                            <td style="text-align:right;border:1px solid #d7d7d7;color:#606060;border-top:0;border-left:0;padding:10px;font-size:12px;font-family:Arial">@String.Format("{0:N0}", total).Replace(",", ".") VNĐ</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+

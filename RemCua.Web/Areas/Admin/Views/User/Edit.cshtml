@@ -1,0 +1,91 @@
+﻿@model RemCua.Entities.Models.User
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    Thêm Sản Phẩm
+                </header>
+                <div class="panel-body">
+                    <div class="row">
+                        @Html.ValidationSummary(true)
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Tên Tài Khoản</label>(<span style="color:#FF0000">*</span>)
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Tên Tài Khoản" })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Mật Khẩu</label>(<span style="color:#FF0000">*</span>)
+                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @placeholder = "Tên Tài Khoản" })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Số Điện Thoại</label>(<span style="color:#FF0000">*</span>)
+                                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @placeholder = "Số Điện Thoại" })
+                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Họ Và Tên</label>(<span style="color:#FF0000">*</span>)
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Họ Và Tên" })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Email</label>(<span style="color:#FF0000">*</span>)
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Địa Chỉ</label>(<span style="color:#FF0000">*</span>)
+                                @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @placeholder = "Địa Chỉ" })
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.Status, new { }) Kích Hoạt
+                                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <button type="submit" class="btn btn-round btn-primary btn-md" style="float: right;">
+                <i class="fa fa-plus"></i>Thêm Người Dùng
+            </button>
+        </div>
+    </div>
+}
+
+@section scripts
+{
+    <link href="~/Content/Admin/assets/toastr/toastr.css" rel="stylesheet" />
+    <script src="~/Content/Admin/assets/toastr/toastr.js"></script>
+
+    @if (ViewBag.message != null)
+    {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                toastr.success('@ViewBag.message')
+            });
+        </script>
+    }
+}

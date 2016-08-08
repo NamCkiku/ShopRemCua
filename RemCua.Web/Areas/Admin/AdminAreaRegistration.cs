@@ -15,6 +15,19 @@ namespace RemCua.Web.Areas.Admin
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
+                 "orderDetail",
+                 "chi-tiet-don-hang/{id}",
+                 new { controller = "OrderAdmin", action = "Detail", id = UrlParameter.Optional }
+             );
+
+            context.MapRoute(
+                 "Order",
+                 "xem-don-hang",
+                 new { controller = "OrderAdmin", action = "ViewOrder", id = UrlParameter.Optional }
+             );
+
+
+            context.MapRoute(
                  "suatintuc",
                  "sua-tin-tuc/{id}",
                  new { controller = "PostAdmin", action = "Edit", id = UrlParameter.Optional }

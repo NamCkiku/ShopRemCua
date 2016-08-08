@@ -69,32 +69,6 @@
     </div>
     <div class="clearfix"></div>
     <div class="box-module">
-        <div>
-            <div class="title_module">
-                <h3 class=""><span>Mạng Xã Hội</span></h3>
-            </div>
-            <div class="box-content">
-                <div class="row-module_opinion">
-                    <div id="fb-root"></div>
-                    @*<script>
-                        (function (d, s, id) {
-                            var js, fjs = d.getElementsByTagName(s)[0];
-                            if (d.getElementById(id)) return;
-                            js = d.createElement(s); js.id = id;
-                            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.7&appId=597788163717802";
-                            fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));</script>
-                    <div class="fb-page" data-width="240" data-height="230" data-href="https://www.facebook.com/sgiaitri/" data-tabs="false" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true">
-                        <blockquote cite="https://www.facebook.com/sgiaitri/" class="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/sgiaitri/">Shop Giải Trí</a>
-                        </blockquote>
-                    </div>*@
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="box-module">
         @{Html.RenderAction("_Ads", "Home");}
     </div>
     <div class="clearfix"></div>
@@ -134,23 +108,23 @@
                         @foreach (var item in ListNewPost)
                         {
                             var url = "/chi-tiet-tin/" + item.Alias + "-" + item.ID;
-                            <li>
-                                <a href="@url">
-                                    <img src="@item.Image" />
-                                </a>
-                                <div class="new_info">
-                                    <h3>
-                                        <a href="@url">@item.Name</a>
-                                        <span class="new-info-update">
-                                            @item.CreatedDate.Value.ToString("dd/MM/yyyy")
-                                            <i class="fa fa-eye"></i>
-                                            @item.ViewCount
-                                        </span>
-                                    </h3>
+                        <li>
+                            <a href="@url">
+                                <img src="@item.Image" />
+                            </a>
+                            <div class="new_info">
+                                <h3>
+                                    <a href="@url">@item.Name</a>
+                                    <span class="new-info-update">
+                                        @item.CreatedDate.Value.ToString("dd/MM/yyyy")
+                                        <i class="fa fa-eye"></i>
+                                        @item.ViewCount
+                                    </span>
+                                </h3>
 
-                                </div>
+                            </div>
 
-                            </li>
+                        </li>
                         }
                     </ul>
                 </div>
@@ -202,7 +176,18 @@
         </div>
     </div>
     <div class="clearfix"></div>
-
+    <div class="box-module">
+        <div>
+            <div class="title_module">
+                <h3 class=""><span>Thống Kê Truy Cập</span></h3>
+            </div>
+            <div class="box-content">
+                <div class="row-module_opinion">
+                    Số Người Đang Online <strong id="counter"></strong>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <link href="~/Content/Admin/assets/toastr/toastr.css" rel="stylesheet" />

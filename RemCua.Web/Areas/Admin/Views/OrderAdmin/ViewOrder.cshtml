@@ -1,0 +1,95 @@
+﻿@model IEnumerable<RemCua.Entities.Models.Order>
+@{
+    ViewBag.Title = "ViewPost";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!-- page start-->
+<div class="row">
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Đơn Đặt Hàng
+            </header>
+            <div class="panel-body">
+                <div class="adv-table">
+                    <table class="display table table-bordered table-striped" id="dynamic-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%" class="text-center">Họ Và Tên</th>
+                                <th style="width: 25%" class="text-center">Địa Chỉ</th>
+                                <th style="width: 15%" class="text-center">Trạng Thái</th>
+                                <th style="width: 15%" class="text-center">Tổng Tiền</th>
+                                <th style="width: 15%" class="text-center">Chức Năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr id="Order-@item.ID" class="gradeX">
+                                    <td class="text-center">@Html.DisplayFor(modelItem => item.CustomerName)</td>
+                                    <td class="text-center">@Html.DisplayFor(modelItem => item.CustomerAddress)</td>
+                                    <td class="text-center"><button type="button" class="btn btn-round btn-xs btn-success btn-active" data-id="@item.ID"> @Html.Raw(item.Status ? "Đã Giao Hàng" : "Đang chờ")</button></td>
+                                    <td class="center" id="@item.ID">
+                                        <script src="~/Content/Admin/js/jquery.js"></script>
+                                        <script>
+                                            $(document).ready(function() {
+                                                $.ajax({
+                                                    url: '/Admin/OrderAdmin/TotalPrice',
+                                                    type: 'GET',
+                                                    dataType: 'json',
+                                                    contentType: 'application/json; charset=utf-8',
+                                                    data:{'id':@item.ID},
+                                                    success: function(data) {
+                                                        document.getElementById("@item.ID").innerHTML = data;
+                                                    }
+                                                });
+                                            })
+                                        </script>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="/chi-tiet-don-hang/@item.ID" class="btn btn-round btn-primary btn-xs btnupdate"><i class="fa fa-pencil-square-o"></i>Chi Tiết</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+@section scripts
+{
+    <link href="~/Content/Admin/assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
+    <link href="~/Content/Admin/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
+    <link href="~/Content/Admin/assets/data-tables/DT_bootstrap.css" rel="stylesheet" />
+    <script src="~/Content/Admin/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+    <script src="~/Content/Admin/assets/data-tables/DT_bootstrap.js"></script>
+    <script src="~/Content/Admin/js/dynamic_table_init.js"></script>
+
+    <script>
+        $('.btn-active').click(function () {
+            var btn = $(this);
+            var id = btn.data('id');
+            $.ajax({
+                url: "@Url.Action("ChangeStatus", "OrderAdmin")",
+                data: { id: id },
+                dataType: "Json",
+                type: "Post",
+                success: function (reponse) {
+                    if (reponse.Status == true) {
+                        btn.text("Đã Giao Hàng");
+                    } else if (reponse.Status == false) {
+                        btn.text("Đang chờ");
+                    }
+                }
+            });
+        });
+    </script>
+}
+
+
+
+
