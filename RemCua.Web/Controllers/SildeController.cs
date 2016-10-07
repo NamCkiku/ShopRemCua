@@ -16,7 +16,7 @@ namespace RemCua.Web.Controllers
         }
         // GET: Silde
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        //[OutputCache(Duration = 3600)]
         public PartialViewResult _Slide()
         {
             var model = _slideService.GetAll();
